@@ -8,7 +8,7 @@ import random as sd
 
 #import keras.backend as K
 #from keras.models import Model, Sequential
-#from keras.layers import Input, Dense, Masking, CuDNNLSTM, TimeDistributed, \
+# from keras.layers import Input, Dense, Masking, CuDNNLSTM, TimeDistributed, \
 #                         Bidirectional, Flatten, \
 #                         Embedding, Dropout, Flatten, BatchNormalization, \
 #                         RNN, concatenate, Activation
@@ -23,9 +23,9 @@ rn.seed(123)
 np.random.seed(99)
 
 # loading gemaps feature file and label
-feat = np.load('/home/s1820002/msp-improv/data/feat_hfs_msp3.npy')
+feat = np.load('../data/data/feat_hfs_msp3.npy')
 
-list_path = '/home/s1820002/msp-improv/helper/improv_data.csv'
+list_path = '../data/improv_data.csv'
 list_file = pd.read_csv(list_path, index_col=None)
 list_sorted = list_file.sort_values(by=['wavfile'])
 vad_list = [list_sorted['v'], list_sorted['a'], list_sorted['d']]
@@ -47,14 +47,16 @@ scaled_vad = True
 # standardization
 if scaled_vad:
     scaler = MinMaxScaler(feature_range=(-1, 1))
-    scaler = scaler.fit(vad) #.reshape(vad.shape[0]*vad.shape[1], vad.shape[2]))
-    scaled_vad = scaler.transform(vad) #.reshape(vad.shape[0]*vad.shape[1], vad.shape[2]))
-    vad = scaled_vad 
+    # .reshape(vad.shape[0]*vad.shape[1], vad.shape[2]))
+    scaler = scaler.fit(vad)
+    # .reshape(vad.shape[0]*vad.shape[1], vad.shape[2]))
+    scaled_vad = scaler.transform(vad)
+    vad = scaled_vad
 else:
     vad = vad
 
 # Concordance correlation coefficient (CCC)-based loss function - using non-inductive statistics
-#def ccc(gold, pred):
+# def ccc(gold, pred):
 #    gold       = K.squeeze(gold, axis=-1)
 #    pred       = K.squeeze(pred, axis=-1)
 #    gold_mean  = K.mean(gold, axis=-1, keepdims=True)
@@ -66,7 +68,7 @@ else:
 #    return ccc
 
 
-#def ccc_loss(gold, pred):  
+# def ccc_loss(gold, pred):
 #    # input (num_batches, seq_len, 1)
 #    ccc_loss   = K.constant(1.) - ccc(gold, pred)
 #    return ccc_loss
@@ -91,12 +93,11 @@ ccc = []
 for i in range(0, 3):
     ccc_, _, _ = calc_scores(y_predict[:, i], y_test[:, i])
     ccc.append(ccc_)
-    #print("# ", ccc)
+    # print("# ", ccc)
 
 print(ccc)
-    
-#Results:
+
+# Results:
 # 0.4874353476028858
 # 0.6822788332623598
 # 0.5516393803700689
-

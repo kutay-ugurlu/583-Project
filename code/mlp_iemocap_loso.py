@@ -14,14 +14,14 @@ rn.seed(123)
 np.random.seed(99)
 
 # load feature and labels
-feat = np.load('/home/s1820002/spro2020/data/feat_ws_3.npy')
-vad = np.load('/home/s1820002/IEMOCAP-Emotion-Detection/y_egemaps.npy')
+feat = np.load('../data/feat_ws_3.npy')
+vad = np.load('../data/y_egemaps.npy')
 
 #feat = feat[:,:-1]
 
 # remove outlier, < 1, > 5
-vad = np.where(vad==5.5, 5.0, vad)
-vad = np.where(vad==0.5, 1.0, vad)
+vad = np.where(vad == 5.5, 5.0, vad)
+vad = np.where(vad == 0.5, 1.0, vad)
 
 # standardization
 scaled_feature = True
@@ -42,9 +42,11 @@ scaled_vad = True
 # standardization
 if scaled_vad:
     scaler = MinMaxScaler(feature_range=(-1, 1))
-    scaler = scaler.fit(vad) #.reshape(vad.shape[0]*vad.shape[1], vad.shape[2]))
-    scaled_vad = scaler.transform(vad) #.reshape(vad.shape[0]*vad.shape[1], vad.shape[2]))
-    vad = scaled_vad 
+    # .reshape(vad.shape[0]*vad.shape[1], vad.shape[2]))
+    scaler = scaler.fit(vad)
+    # .reshape(vad.shape[0]*vad.shape[1], vad.shape[2]))
+    scaled_vad = scaler.transform(vad)
+    vad = scaled_vad
 else:
     vad = vad
 
@@ -70,13 +72,11 @@ ccc = []
 for i in range(0, 3):
     ccc_, _, _ = calc_scores(y_predict[:, i], y_test[:, i])
     ccc.append(ccc_)
-    #print("# ", ccc)
+    # print("# ", ccc)
 
 print(ccc)
-    
-#Results:
+
+# Results:
 #  0.3347105262468933
 #  0.5823825252355231
 #  0.4583157685040692
-
-

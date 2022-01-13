@@ -14,15 +14,17 @@ rn.seed(123)
 np.random.seed(99)
 
 # load feature and labels
-feat_iemocap = np.load('/home/s1820002/spro2020/data/feat_ws_3.npy')
-vad_iemocap = np.load('/home/s1820002/IEMOCAP-Emotion-Detection/y_egemaps.npy')
+feat_iemocap = np.load('../data/feat_ws_3.npy')
+vad_iemocap = np.load('../data/y_egemaps.npy')
 
-feat_improv_train = np.load('/home/s1820002/deepMLP/data/feat_hfs_gemaps_msp_train.npy')
-feat_improv_test = np.load('/home/s1820002/deepMLP/data/feat_hfs_gemaps_msp_test.npy')
+feat_improv_train = np.load(
+    '../data/feat_hfs_gemaps_msp_train.npy')
+feat_improv_test = np.load(
+    '../data/feat_hfs_gemaps_msp_test.npy')
 
 feat_improv = np.vstack([feat_improv_train, feat_improv_test])
 
-list_path = '/home/s1820002/msp-improv/helper/improv_data.csv'
+list_path = '../data/improv_data.csv'
 list_file = pd.read_csv(list_path, index_col=None)
 list_sorted = list_file.sort_values(by=['wavfile'])
 vad_list = [list_sorted['v'], list_sorted['a'], list_sorted['d']]
@@ -51,16 +53,19 @@ scaled_vad = True
 # standardization
 if scaled_vad:
     scaler = MinMaxScaler(feature_range=(-1, 1))
-    scaler = scaler.fit(vad) #.reshape(vad.shape[0]*vad.shape[1], vad.shape[2]))
-    scaled_vad = scaler.transform(vad) #.reshape(vad.shape[0]*vad.shape[1], vad.shape[2]))
-    vad = scaled_vad 
+    # .reshape(vad.shape[0]*vad.shape[1], vad.shape[2]))
+    scaler = scaler.fit(vad)
+    # .reshape(vad.shape[0]*vad.shape[1], vad.shape[2]))
+    scaled_vad = scaler.transform(vad)
+    vad = scaled_vad
 else:
     vad = vad
 
 
-idx_train = np.hstack([np.arange(0, 7869), np.arange(10039, len(feat_improv_train))])
-idx_test = np.hstack([np.arange(7869,10039), np.arange(10039 + 
-           len(feat_improv_train), 18387)])
+idx_train = np.hstack(
+    [np.arange(0, 7869), np.arange(10039, len(feat_improv_train))])
+idx_test = np.hstack([np.arange(7869, 10039), np.arange(10039 +
+                                                        len(feat_improv_train), 18387)])
 
 X_train = feat[idx_train]
 X_test = feat[idx_test]
@@ -83,13 +88,11 @@ ccc = []
 for i in range(0, 3):
     ccc_, _, _ = calc_scores(y_predict[:, i], y_test[:, i])
     ccc.append(ccc_)
-    #print("# ", ccc)
+    # print("# ", ccc)
 
 print(ccc)
 
-#Results:
+# Results:
 #  0.3347105262468933
 #  0.5823825252355231
 #  0.4583157685040692
-
-
