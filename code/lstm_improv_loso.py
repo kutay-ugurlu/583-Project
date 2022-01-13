@@ -12,7 +12,7 @@ import pandas as pd
 
 import keras.backend as K
 from keras.models import Model
-from keras.layers import Input, Dense, CuDNNLSTM, Flatten, \
+from keras.layers import Input, Dense, LSTM, Flatten, \
     Embedding, Dropout, BatchNormalization, \
     RNN, concatenate, Activation
 
@@ -27,7 +27,7 @@ import tensorflow as tf
 
 rn.seed(123)
 np.random.seed(99)
-tf.set_random_seed(1234)
+tf.compat.v1.set_random_seed(1234)
 
 # load feature and labels
 feat_train = np.load(
@@ -118,11 +118,11 @@ def api_model(alpha, beta, gamma):
     input_speech = Input(
         shape=(feat.shape[1], feat.shape[2]), name='speech_input')
     net_speech = BatchNormalization()(input_speech)
-    net_speech = CuDNNLSTM(256, return_sequences=True)(net_speech)
-    net_speech = CuDNNLSTM(128, return_sequences=True)(net_speech)
-    net_speech = CuDNNLSTM(64, return_sequences=True)(net_speech)
-    net_speech = CuDNNLSTM(32, return_sequences=True)(net_speech)
-    net_speech = CuDNNLSTM(16, return_sequences=True)(net_speech)
+    net_speech = LSTM(256, return_sequences=True)(net_speech)
+    net_speech = LSTM(128, return_sequences=True)(net_speech)
+    net_speech = LSTM(64, return_sequences=True)(net_speech)
+    net_speech = LSTM(32, return_sequences=True)(net_speech)
+    net_speech = LSTM(16, return_sequences=True)(net_speech)
     model_speech = Flatten()(net_speech)
     #model_speech = Dropout(0.1)(net_speech)
 

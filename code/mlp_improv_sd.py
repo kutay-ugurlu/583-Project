@@ -8,7 +8,7 @@ import random as sd
 
 #import keras.backend as K
 #from keras.models import Model, Sequential
-# from keras.layers import Input, Dense, Masking, CuDNNLSTM, TimeDistributed, \
+# from keras.layers import Input, Dense, Masking, LSTM, TimeDistributed, \
 #                         Bidirectional, Flatten, \
 #                         Embedding, Dropout, Flatten, BatchNormalization, \
 #                         RNN, concatenate, Activation

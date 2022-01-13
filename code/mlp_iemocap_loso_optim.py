@@ -17,7 +17,7 @@ np.random.seed(99)
 
 # load feature and labels
 feat = np.load('../data/feat_ws_3.npy')
-vad = np.load('../data//y_egemaps.npy')
+vad = np.load('../data/y_egemaps.npy')
 
 #feat = feat[:,:-1]
 

@@ -27,7 +27,7 @@ import tensorflow as tf
 
 rn.seed(123)
 np.random.seed(99)
-tf.set_random_seed(1234)
+tf.compat.v1.set_random_seed(1234)
 
 # load feature and labels
 feat = np.load('../data/data/feat_hfs_msp3.npy')
