@@ -6,6 +6,7 @@
 
 import numpy as np
 import random as rn
+import pandas as pd
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
 from sklearn.neural_network import MLPRegressor
 from calc_scores import calc_scores
@@ -14,12 +15,12 @@ rn.seed(123)
 np.random.seed(99)
 
 # load feature and labels
-feat_iemocap = np.load('/home/s1820002/spro2020/data/feat_ws_3.npy')
-vad_iemocap = np.load('/home/s1820002/IEMOCAP-Emotion-Detection/y_egemaps.npy')
+feat_iemocap = np.load('../data/feat_ws_3.npy')
+vad_iemocap = np.load('../data/y_egemaps.npy')
 
-feat_improv = np.load('/home/s1820002/msp-improv/data/feat_hfs_msp3.npy')
+feat_improv = np.load('../data/feat_hfs_msp3.npy')
 
-list_path = '/home/s1820002/msp-improv/helper/improv_data.csv'
+list_path = '../data/improv_data.csv'
 list_file = pd.read_csv(list_path, index_col=None)
 list_sorted = list_file.sort_values(by=['wavfile'])
 vad_list = [list_sorted['v'], list_sorted['a'], list_sorted['d']]

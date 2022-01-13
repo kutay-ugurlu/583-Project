@@ -14,12 +14,12 @@ rn.seed(123)
 np.random.seed(99)
 
 # loading file and label
-feat_train = np.load('/home/s1820002/deepMLP/data/feat_hfs_gemaps_msp_train.npy')
-feat_test = np.load('/home/s1820002/deepMLP/data/feat_hfs_gemaps_msp_test.npy')
+feat_train = np.load('../data/feat_hfs_gemaps_msp_train.npy')
+feat_test = np.load('../data/feat_hfs_gemaps_msp_test.npy')
 
 feat = np.vstack([feat_train, feat_test])
 
-list_path = '/home/s1820002/msp-improv/helper/improv_data.csv'
+list_path = '../data/improv_data.csv'
 list_file = pd.read_csv(list_path, index_col=None)
 data = list_file.sort_values(by=['wavfile'])
 
