@@ -27,7 +27,7 @@ tf.compat.v1.set_random_seed(1234)
 
 # load feature and labels
 # loading gemaps feature file and label
-feat = np.load('../data/data/feat_hfs_msp3.npy')
+feat = np.load('../data/feat_hfs_msp3.npy')
 feat = feat.reshape(feat.shape[0], 1, feat.shape[1])
 
 list_path = '../data/improv_data.csv'

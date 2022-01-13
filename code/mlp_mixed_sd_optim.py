@@ -9,6 +9,7 @@ import random as rn
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
 from sklearn.neural_network import MLPRegressor
 from calc_scores import calc_scores
+import pandas as pd 
 
 rn.seed(123)
 np.random.seed(99)
@@ -17,7 +18,7 @@ np.random.seed(99)
 feat_iemocap = np.load('../data/feat_ws_3.npy')
 vad_iemocap = np.load('../data/y_egemaps.npy')
 
-feat_improv = np.load('../data/data/feat_hfs_msp3.npy')
+feat_improv = np.load('../data/feat_hfs_msp3.npy')
 
 list_path = '../data/improv_data.csv'
 list_file = pd.read_csv(list_path, index_col=None)

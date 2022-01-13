@@ -32,7 +32,7 @@ tf.compat.v1.set_random_seed(1234)
 feat_iemocap = np.load('../data/feat_ws_3.npy')
 vad_iemocap = np.load('../data/y_egemaps.npy')
 
-feat_improv = np.load('../data/data/feat_hfs_msp3.npy')
+feat_improv = np.load('../data/feat_hfs_msp3.npy')
 
 list_path = '../data/improv_data.csv'
 list_file = pd.read_csv(list_path, index_col=None)

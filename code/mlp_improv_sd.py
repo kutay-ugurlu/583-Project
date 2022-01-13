@@ -23,7 +23,7 @@ rn.seed(123)
 np.random.seed(99)
 
 # loading gemaps feature file and label
-feat = np.load('../data/data/feat_hfs_msp3.npy')
+feat = np.load('../data/feat_hfs_msp3.npy')
 
 list_path = '../data/improv_data.csv'
 list_file = pd.read_csv(list_path, index_col=None)

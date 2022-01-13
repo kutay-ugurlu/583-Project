@@ -30,7 +30,7 @@ np.random.seed(99)
 tf.compat.v1.set_random_seed(1234)
 
 # load feature and labels
-feat = np.load('../data/data/feat_hfs_msp3.npy')
+feat = np.load('../data/feat_hfs_msp3.npy')
 feat = feat.reshape(feat.shape[0], feat.shape[1], 1)
 
 list_path = '../data/improv_data.csv'
