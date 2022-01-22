@@ -1,7 +1,7 @@
 # lstm_lstm: emotion recognition from speech= lstm, text=lstm
 # created for ATSIT paper 2020
 # coded by Bagus Tris Atmaja (bagus@ep.its.ac.id)
-
+# %% 
 import numpy as np
 import random as rn
 import pandas as pd
@@ -19,6 +19,8 @@ feat_test = np.load('../data/feat_hfs_gemaps_msp_test.npy')
 
 feat = np.vstack([feat_train, feat_test])
 
+
+# %%
 list_path = '../data/improv_data.csv'
 list_file = pd.read_csv(list_path, index_col=None)
 data = list_file.sort_values(by=['wavfile'])
@@ -59,11 +61,15 @@ if scaled_vad:
 else:
     vad = vad
 
+# %%
 # train/test split, LOSO
 X_train = feat[:len(feat_train)]
 X_test = feat[len(feat_train):]
 y_train = vad[:len(vad_train)]
 y_test = vad[len(vad_train):]
+
+
+# %%
 
 # batch_size=min(200, n_samples)
 # layers (256, 128, 64, 32, 16)

@@ -5,7 +5,7 @@
 # 2019-12-25: modified from ser_iemocap_loso_hfs.py
 #             feature is std+mean+silence
 # 2020-01-30: modified for eusipco 2020
-
+# %%
 import numpy as np
 import pickle
 import pandas as pd
@@ -137,7 +137,7 @@ def api_model(alpha, beta, gamma):
                   optimizer='adam', metrics=[ccc])
     return model
 
-
+# %%
 # def main(alpha, beta, gamma):
 model = api_model(0.1, 0.5, 0.4)
 model.summary()

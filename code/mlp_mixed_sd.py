@@ -4,6 +4,7 @@
 # changelog:
 # 2020/01/28: create names mlp_iemocap_paa
 
+# %%
 import numpy as np
 import random as rn
 import pandas as pd
@@ -62,6 +63,8 @@ X_train = feat[idx_train]
 X_test = feat[idx_test]
 y_train = vad[idx_train]
 y_test = vad[idx_test]
+
+# %%
 
 # batch_size=min(200, n_samples)
 # layers (256, 128, 64, 32, 16)
