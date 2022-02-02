@@ -1,1 +1,3 @@
-data
+data/MELDRaw/*
+!data/MELDRaw/*.py
+data/EmoSynth/*

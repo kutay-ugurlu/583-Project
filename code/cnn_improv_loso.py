@@ -28,6 +28,8 @@ import tensorflow as tf
 rn.seed(123)
 np.random.seed(99)
 tf.compat.v1.set_random_seed(1234)
+tf.compat.v1.logging.set_verbosity(tf.compat.v1.logging.ERROR)
+
 
 # load feature and labels
 feat_train = np.load(
@@ -84,6 +86,8 @@ else:
 
 # Concordance correlation coefficient (CCC)-based loss function - using non-inductive statistics
 
+print("TRAIN DATA SHAPE: ", vad.shape, feat.shape, "############################################################3")
+
 
 def ccc(gold, pred):
     gold = K.squeeze(gold, axis=-1)
@@ -138,10 +142,63 @@ model.summary()
 # 8000 first data of session 5 (for LOSO)
 earlystop = EarlyStopping(monitor='val_loss', mode='min', patience=10,
                           restore_best_weights=True)
-hist = model.fit(feat[:len(feat_train)], vad[:len(feat_train)].T.tolist(), batch_size=200,  # best:8
-                 validation_split=0.2, epochs=180, verbose=1, shuffle=True,
+X_train = feat[:len(feat_train)]
+Y_train = vad[:len(feat_train)].T
+print(Y_train.shape,"Y_train #####################################################################################################")
+print(X_train.shape,"X_train #####################################################################################################")
+Y_train = Y_train.tolist()
+hist = model.fit(X_train, Y_train, batch_size=200,  # best:8
+                 validation_split=0.2, epochs=180, verbose=0, shuffle=True,
                  callbacks=[earlystop])
 metrik = model.evaluate(feat[len(feat_train):],
                         vad[len(feat_train):].T.tolist())
 print(metrik)
 print("CCC ave= ", np.mean(metrik[-3:]))
+
+
+
+import numpy as np 
+from sklearn.preprocessing import StandardScaler, MinMaxScaler, RobustScaler
+
+val_data_2 = np.load("C:/Users/Kutay/Desktop/deep_mlp_ser/data/MELDRaw/MELD_test_data.npy")
+
+val_label_2 = np.transpose(np.load("C:/Users/Kutay/Desktop/deep_mlp_ser/data/MELDRaw/MELD_labels.npy"))
+val_data_2 = val_data_2.reshape(val_data_2.shape[0], val_data_2.shape[1], 1)
+
+scaled_feature = True
+
+if scaled_feature == True:
+    scaler = StandardScaler()
+    scaler = scaler.fit(val_data_2.reshape(
+        val_data_2.shape[0]*val_data_2.shape[1], val_data_2.shape[2]))
+    print(val_data_2.shape, "#2")
+    scaled_feat = scaler.transform(val_data_2.reshape(
+        val_data_2.shape[0]*val_data_2.shape[1], val_data_2.shape[2]))
+    print(val_data_2.shape, "#3")
+    scaled_feat = scaled_feat.reshape(
+        val_data_2.shape[0], val_data_2.shape[1], val_data_2.shape[2])
+    print(val_data_2.shape, "#4")
+    val_data_2 = scaled_feat
+else:
+    val_data_2 = val_data_2
+
+scaled_vad = True
+
+# standardization
+if scaled_vad:
+    scaler = MinMaxScaler(feature_range=(-1, 1))
+    # .reshape(vad.shape[0]*vad.shape[1], vad.shape[2]))
+    scaler = scaler.fit(val_label_2)
+    # .reshape(vad.shape[0]*vad.shape[1], vad.shape[2]))
+    scaled_vad = scaler.transform(val_label_2)
+    val_label_2 = scaled_vad
+else:
+    val_label_2 = val_label_2
+
+print("VALIDATION SHAPES: ", val_data_2.shape, val_label_2.shape)
+
+metrik_val = model.evaluate(val_data_2,val_label_2.tolist())
+print(metrik_val)
+print("CCC ave= ", np.mean(metrik_val[-3:]))
+
+
