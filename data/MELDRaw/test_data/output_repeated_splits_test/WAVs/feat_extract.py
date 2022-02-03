@@ -9,7 +9,7 @@ from glob import glob
 from scipy.io import wavfile
 from scipy.signal import resample
 
-audio_files = np.load("audio_files_in_order.npy").tolist()
+audio_files = np.load("audio_files_in_order_no_neutral.npy").tolist()
 audio_files = [str(item) for item in audio_files]
 
 smile = opensmile.Smile(
@@ -54,4 +54,4 @@ for audio_file in audio_files:
     print(container.shape)
 
 
-np.save('MELD_test_data',container)
+np.save('MELD_test_data_no_neutral',container)
