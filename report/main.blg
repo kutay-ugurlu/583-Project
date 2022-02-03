@@ -1,0 +1,17 @@
+[0] Config.pm:311> INFO - This is Biber 2.16
+[0] Config.pm:314> INFO - Logfile is 'main.blg'
+[145] biber-MSWIN64:340> INFO - === 
+[193] Biber.pm:415> INFO - Reading 'main.bcf'
+[332] Biber.pm:952> INFO - Found 2 citekeys in bib section 0
+[349] Biber.pm:4340> INFO - Processing section 0
+[362] Biber.pm:4531> INFO - Looking for bibtex format file 'project.bib' for section 0
+[439] bibtex.pm:1689> INFO - LaTeX decoding ...
+[463] bibtex.pm:1494> INFO - Found BibTeX data source 'project.bib'
+[506] Utils.pm:395> WARN - BibTeX subsystem: C:\Users\KUTAYU~1\AppData\Local\Temp\biber_tmp_vLQZ\601816ded5844b09deb07b2e18ce050e_11992.utf8, line 19, warning: 1 characters of junk seen at toplevel
+[518] UCollate.pm:68> INFO - Overriding locale 'nil' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[518] UCollate.pm:68> INFO - Overriding locale 'nil' defaults 'variable = shifted' with 'variable = non-ignorable'
+[518] Biber.pm:4168> INFO - Sorting list 'ynt/global//global/global' of type 'entry' with template 'ynt' and locale 'nil'
+[518] Biber.pm:4174> INFO - No sort tailoring available for locale 'nil'
+[521] bbl.pm:654> INFO - Writing 'main.bbl' with encoding 'UTF-8'
+[523] bbl.pm:757> INFO - Output to main.bbl
+[524] Biber.pm:128> INFO - WARNINGS: 1
