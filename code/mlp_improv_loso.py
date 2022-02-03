@@ -88,6 +88,90 @@ for i in range(0, 3):
 
 print(ccc)
 print(np.mean(ccc))
+
+
+
+
+data = {}
+
+data["First Eval"] = np.mean(ccc)
+
+import numpy as np 
+from sklearn.preprocessing import StandardScaler, MinMaxScaler, RobustScaler
+from sklearn.model_selection import train_test_split
+
+val_data_2 = np.load("C:/Users/Kutay/Desktop/deep_mlp_ser/data/MELDRaw/MELD_test_data_no_neutral.npy")
+val_label_2 = np.load("C:/Users/Kutay/Desktop/deep_mlp_ser/data/MELDRaw/MELD_labels_no_neutral.npy")
+val_label_2 += .01 * np.random.randn(val_label_2.shape[0],val_label_2.shape[1])
+
+scaled_feature = True
+
+if scaled_feature == True:
+    scaler = StandardScaler()
+    scaler = scaler.fit(val_data_2)
+    scaled_feat = scaler.transform(val_data_2)
+    val_data_2 = scaled_feat
+else:
+    val_data_2 = val_data_2
+
+scaled_vad = False
+
+# standardization
+if scaled_vad:
+    scaler = MinMaxScaler(feature_range=(-1, 1))
+    # .reshape(vad.shape[0]*vad.shape[1], vad.shape[2]))
+    scaler = scaler.fit(vad)
+    # .reshape(vad.shape[0]*vad.shape[1], vad.shape[2]))
+    scaled_vad = scaler.transform(vad)
+    vad = scaled_vad
+else:
+    vad = vad
+
+y_predict = nn.predict(val_data_2)
+
+
+ccc = []
+for i in range(0, 3):
+    ccc_, _, _ = calc_scores(y_predict[:, i], val_label_2[:, i])
+    ccc.append(ccc_)
+    # print("# ", ccc)
+
+data["Second Eval"] = np.mean(ccc)
+
+
+
+nn = MLPRegressor(
+    hidden_layer_sizes=(256, 128, 64, 32, 16),  activation='logistic', solver='adam', alpha=0.001, batch_size='auto',
+    learning_rate='constant', learning_rate_init=0.001, power_t=0.5, max_iter=180, shuffle=True,
+    random_state=9, verbose=0, warm_start=True, momentum=0.9, nesterovs_momentum=True,
+    early_stopping=True, validation_fraction=0.2, beta_1=0.9, beta_2=0.999, epsilon=1e-08,
+    n_iter_no_change=100)
+
+
+
+X_train, X_test, y_train, y_test = train_test_split(val_data_2, val_label_2, test_size=0.33, random_state=42)
+
+
+nn = nn.fit(X_train, y_train)
+y_predict = nn.predict(X_test)
+
+
+ccc = []
+for i in range(0, 3):
+    ccc_, _, _ = calc_scores(y_predict[:, i], y_test[:, i])
+    ccc.append(ccc_)
+    # print("# ", ccc)
+
+data["Third Eval"] = np.mean(ccc)
+
+import json
+import os 
+
+script_name = os.path.basename(__file__)
+with open('JSONs/' + script_name + '_data.json', 'w') as f:
+    json.dump(data, f)
+
+
 # Results speaker-dependent:
 # 0.4874353476028858
 # 0.6822788332623598
