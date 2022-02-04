@@ -104,7 +104,7 @@ from sklearn.model_selection import train_test_split
 
 val_data_2 = np.load("C:/Users/Kutay/Desktop/deep_mlp_ser/data/MELDRaw/MELD_test_data_no_neutral.npy")
 val_label_2 = np.load("C:/Users/Kutay/Desktop/deep_mlp_ser/data/MELDRaw/MELD_labels_no_neutral.npy")
-val_label_2 += .01 * np.random.randn(val_label_2.shape[0],val_label_2.shape[1])
+val_label_2 += 0 *  np.random.randn(val_label_2.shape[0],val_label_2.shape[1])
 
 scaled_feature = True
 
@@ -152,7 +152,7 @@ nn = MLPRegressor(
 
 
 
-X_train, X_test, y_train, y_test = train_test_split(val_data_2, val_label_2, test_size=0.33, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(val_data_2, val_label_2, test_size=0.2, random_state=42)
 
 
 nn = nn.fit(X_train, y_train)

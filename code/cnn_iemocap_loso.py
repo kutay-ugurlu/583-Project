@@ -147,7 +147,7 @@ val_data_2 = np.load(
     "C:/Users/Kutay/Desktop/deep_mlp_ser/data/MELDRaw/MELD_test_data_no_neutral.npy")
 val_label_2 = np.load(
     "C:/Users/Kutay/Desktop/deep_mlp_ser/data/MELDRaw/MELD_labels_no_neutral.npy")
-val_label_2 += .01 * \
+val_label_2 += 0 *  \
     np.random.randn(val_label_2.shape[0], val_label_2.shape[1])
 
 scaled_feature = True

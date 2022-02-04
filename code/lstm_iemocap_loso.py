@@ -147,7 +147,7 @@ val_data_2 = np.load(
 val_data_2 = val_data_2.reshape(val_data_2.shape[0], val_data_2.shape[1], 1)
 val_label_2 = np.load(
     "C:/Users/Kutay/Desktop/deep_mlp_ser/data/MELDRaw/MELD_labels_no_neutral.npy")
-val_label_2 += .01 * \
+val_label_2 += 0 *  \
     np.random.randn(val_label_2.shape[0], val_label_2.shape[1])
 
 scaled_feature = True
@@ -193,8 +193,8 @@ data["Second Eval whole"] = metrik_val[-3:]
 # Train Test Split
 print(val_data_2.shape, val_label_2.shape)
 print(val_label_2)
-X_train, X_test, y_train, y_test = train_test_split(
-    val_data_2, np.transpose(val_label_2), test_size=0.2, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(val_data_2, val_label_2, test_size=0.2, random_state=42)
+
 
 
 model = api_model(0.1, 0.5, 0.4)
