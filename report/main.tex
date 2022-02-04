@@ -252,6 +252,8 @@ The total loss with respect to this loss is defined to be the sum of loss of ind
     \label{eq:CCCLoss}
 \end{equation}
 
+\pagebreak
+
 \subsection{Changes made}
 
 \subsubsection{Data}
@@ -269,16 +271,15 @@ The whole data formation process can be seen in Figure \ref{fig:dataformation}.
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.8\textwidth]{Presentation.png}
+\includegraphics[width=0.7\textwidth]{Presentation.png}
 \caption{The data formation steps used to augment data from MELD dataset}\label{fig:dataformation}
 \end{figure}
-
-\pagebreak
 
 \subsubsection{Models}
 
 The pre-trained models are evaluated using the new test data. Furthermore, to make better conclusions on the models' capability to fit the data, the data is split to train, test and validation sets and the model is evaluated after being retrained. The architectures of the model were not changed. The only change made was the number of training and patience epoch for early stopping. 
 
+\pagebreak
 
 \section{Results and Discussion} \label{sec:results}
 
