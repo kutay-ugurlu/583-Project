@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 22.1) (preloaded format=xelatex 2022.2.4)  4 FEB 2022 16:43
+This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 22.1) (preloaded format=xelatex 2022.2.4)  4 FEB 2022 18:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -928,14 +928,27 @@ Package: multicol 2021/10/28 v1.9b multicolumn formatting (FMi)
 \colbreak@box=\box106
 \mc@col@check@num=\count456
 )
+(C:\Users\KutayUgurlu\AppData\Local\Programs\MiKTeX\tex/latex/titlesec\titlesec
+.sty
+Package: titlesec 2021/07/05 v2.14 Sectioning titles
+\ttl@box=\box107
+\beforetitleunit=\skip104
+\aftertitleunit=\skip105
+\ttl@plus=\dimen268
+\ttl@minus=\dimen269
+\ttl@toksa=\toks30
+\titlewidth=\dimen270
+\titlewidthlast=\dimen271
+\titlewidthfirst=\dimen272
+)
 (C:\Users\KutayUgurlu\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.s
 ty
 Package: caption 2020/10/26 v3.5g Customizing captions (AR)
 \c@caption@flags=\count457
 \c@continuedfloat=\count458
 Package caption Info: changepage package is loaded.
-\caption@adjustwidth@hsize=\dimen268
-\caption@adjustwidth@linewidth=\dimen269
+\caption@adjustwidth@hsize=\dimen273
+\caption@adjustwidth@linewidth=\dimen274
 Package caption Info: float package is loaded.
 Package caption Info: floatrow package is loaded.
 Package caption Info: hyperref package is loaded.
@@ -960,39 +973,39 @@ File: l3backend-xetex.def 2022-01-12 L3 backend support: XeTeX
 \l__color_backend_stack_int=\count462
 \g__color_backend_stack_int=\count463
 \g__graphics_track_int=\count464
-\l__pdf_internal_box=\box107
+\l__pdf_internal_box=\box108
 \g__pdf_backend_object_int=\count465
 \g__pdf_backend_annotation_int=\count466
 \g__pdf_backend_link_int=\count467
 ) (main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 70.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 7
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 80.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 8
 0.
 
 (C:\Users\KutayUgurlu\AppData\Local\Programs\MiKTeX\tex/latex/base\ts1cmr.fd
 File: ts1cmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
 Package biblatex Info: Trying to load language 'english'...
 Package biblatex Info: ... file 'english.lbx' found.
 
@@ -1028,8 +1041,8 @@ Package: blx-case-expl3 2020/12/31 v3.16 expl3 case changing code for biblatex
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'main.bbl' found.
  (main.bbl)
-Package biblatex Info: Reference section=0 on input line 70.
-Package biblatex Info: Reference segment=0 on input line 70.
+Package biblatex Info: Reference section=0 on input line 80.
+Package biblatex Info: Reference segment=0 on input line 80.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -1068,7 +1081,7 @@ Package biblatex Info: Reference segment=0 on input line 70.
 \c@lstlisting=\count468
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring OFF on input line 70.
+Package hyperref Info: Link coloring OFF on input line 80.
 
 (C:\Users\KutayUgurlu\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.
 sty
@@ -1084,9 +1097,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count469
 )
-LaTeX Info: Redefining \ref on input line 70.
-LaTeX Info: Redefining \pageref on input line 70.
-LaTeX Info: Redefining \nameref on input line 70.
+LaTeX Info: Redefining \ref on input line 80.
+LaTeX Info: Redefining \pageref on input line 80.
+LaTeX Info: Redefining \nameref on input line 80.
  (main.out) (main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
@@ -1096,44 +1109,59 @@ LaTeX Info: Redefining \nameref on input line 70.
 .sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 94.
-
+LaTeX Font Info:    Trying to load font information for U+msa on input line 105
+.
 
 (C:\Users\KutayUgurlu\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 94.
-
+LaTeX Font Info:    Trying to load font information for U+msb on input line 105
+.
 (C:\Users\KutayUgurlu\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-] [2]
+] (main.toc)
+\tf@toc=\write5
+\openout5 = `main.toc'.
+
+ [2] [3]
 File: dimensions_pic.png Graphic file (type bmp)
 <dimensions_pic.png>
- [3]
+ [4]
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
-59.
+74.
 
 (C:\Users\KutayUgurlu\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-[4] [5]
+[5]
+File: modelsparams.png Graphic file (type bmp)
+<modelsparams.png>
+File: modelparamsmlp.png Graphic file (type bmp)
+<modelparamsmlp.png>
+File: Presentation.png Graphic file (type bmp)
+<Presentation.png>
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[6] [7]
 Missing character: There is no ă in font ec-lmr10!
-[6] (main.aux)
+[8] (main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 3703CE7B0D69E4E4DD33640B3C1C234A;879.
+(rerunfilecheck)             Checksum: BB71C8C833EF41FD474FDA8B67435EB1;1519.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 23507 strings out of 410978
- 402759 string characters out of 2822796
- 1168196 words of memory out of 3000000
- 43973 multiletter control sequences out of 15000+600000
- 506023 words of font info for 65 fonts, out of 8000000 for 9000
+ 23850 strings out of 410978
+ 407650 string characters out of 2822796
+ 1175593 words of memory out of 3000000
+ 44307 multiletter control sequences out of 15000+600000
+ 509013 words of font info for 66 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 68i,11n,76p,1124b,4763s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 68i,11n,76p,1124b,4764s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (6 pages).
+Output written on main.pdf (8 pages).

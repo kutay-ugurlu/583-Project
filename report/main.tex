@@ -7,7 +7,7 @@
 %\renewcommand{\baselinestretch}{1.9}
 \usepackage{graphicx}
 %\usepackage{cite}
-\usepackage[style=ieee, nohashothers=true, nosortothers=true, uniquelist=true, natbib=true, backend=biber]{biblatex}
+\usepackage[style=ieee, nohashothers=true, nosortothers=true, uniquelist=true, natbib=true, backend=biber, sorting=none]{biblatex}
 \DefineBibliographyStrings{english}{andothers={}}
 
 \addbibresource{project.bib}
@@ -36,6 +36,16 @@
 \usepackage{csquotes}
 \usepackage{booktabs}
 \usepackage{multicol}
+\usepackage{titlesec}
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
 
 \usepackage{caption}
 \usepackage{subcaption}
@@ -68,6 +78,7 @@
 \author{Kutay U\u{g}urlu 2232841}
 
 \begin{document}
+
     
 \lstset{language=Matlab,%
     %basicstyle=\color{red},
@@ -92,7 +103,8 @@
 Inspection of \textit{Deep Multilayer Perceptrons for Dimensional Speech Emotion Recognition}}
 
 \maketitle{\LARGE}
-
+\pagebreak
+\tableofcontents
 \pagebreak
 
 \section{Introduction}
@@ -142,9 +154,12 @@ The idea that emotion categories can be separated based on some emotional dimens
 
 \section{Implementation} \label{sec:implementation}
 
-\subsection{Data} 
+This section composes of two sections describing the implementation of the original authors and slight changes made.
 
-\subsubsection{Datasets}
+\subsection{Original Paper}
+\subsubsection{Data} 
+
+\paragraph{Datasets}
 
 There are mainly two datasets utilized in the paper. 
 \begin{enumerate}
@@ -152,7 +167,7 @@ There are mainly two datasets utilized in the paper.
     \item \textbf{MSP-IMPROV:} 18 hours of speech data consisting of 8438 utterances is used \cite{busso2016msp}.
 \end{enumerate}
 
-\subsubsection{Data preprocessing} \label{subsec:datapreprocess}
+\paragraph{Data Preprocessing} \label{subsec:datapreprocess}
 
 The shared data in \cite{atmaja2020deep} are already preprocessed and the scripts and tools the authors utilized was not explicitly shared. However, the types of features Atmaja \textit{et al.} used is shared in the paper.  
 The audio in the dataset are used to extract 47 features per utterance.
@@ -166,7 +181,7 @@ These features are obtained in a 2-level process. First, the Low Level Descripto
     \item Spectral slope 500-1500 Hz
     \item Spectral flux
     \item 4 MFCCs
-    \item $\mathcal{f}=0$
+    \item $f_0$
     \item jitter
     \item shimmer
     \item Harmonics-to-Noise Ratio (HNR)
@@ -196,11 +211,53 @@ and
     X_{RMS} = \sqrt{\frac{1}{n}\sum_{i=1}^n{x[i]}^2}
 \end{equation} 
 where the factor 0.3 is determined empirically.
-\subsection{Models}
+\subsubsection{Models}
 
-The multiplayer perceptron models are implemented with Scikit-learn's MLP Regressor \cite{scikit-learn} and the remaining CNN and LSTM models are implemented with Tensorflow \cite{tensorflow2015-whitepaper}.
+The benchmark models which authors use to compare the model performance are composed of CNN and LSTM units. The authors use the same number of units and layers in the model. In Figure \ref{fig:models}, it can be seen that the models have approximately the same number of trainable parameters. 
+
+The multiplayer perceptron models are implemented with scikit-learn's MLP Regressor \cite{scikit-learn} and the remaining CNN and LSTM models are implemented with Tensorflow \cite{tensorflow2015-whitepaper}.
+
+\begin{figure}[h]
+\centering
+\begin{subfigure}[b]{0.45\textwidth}
+\centering
+\includegraphics[width=0.8\textwidth, height=5cm]{modelsparams.png}
+\caption{Benchmark model architectures}\label{subfig:subcnnlstm}
+\end{subfigure}
+\begin{subfigure}[b]{0.45\linewidth}
+\centering
+\includegraphics[width=0.8\textwidth]{modelparamsmlp.png}
+\caption{Proposed Multilayer MLP architecture}\label{subfig:submlp}
+\end{subfigure}
+\caption{Model architectures utilized in \cite{atmaja2020deep}}
+\label{fig:models}
+\end{figure}
+
+
+\subsection{Changes made}
+
+\subsubsection{Data}
+
+\paragraph{Datasets}
+
+The authors of the study made use of the most of the databases whose utterances are labelled by multiple annotators in the Valence-Arousal-Dominance dimension. 
+Although there are many available datasets on Speech Emotion Recognition, only a few of them are labelled in the same manner. However, these datasets were not available for open access. The remaining available datasets are either labelled categorically, \textit{i.e.} sad, joy, anger etc. or labelled only in 2 dimension: Valence and Arousal. Since the latter option requires one to re-train the model and does not provide one with the chance of evaluating the pretrained model with the new test data, categorical dataset, MELD \cite{atmaja2020deep}, was used for the evaluation. The dataset consists of utterances in mp4 format from the TV series ''Friends'' and the categorical emotion regarding these utterances. 
+
+\paragraph{Data Preprocessing}
+
+To augment the dimensional, \textit{i.e.} numerical, labels from the categorical labels. This is conducted by mapping the categorical labels to points in the Valence-Arousal-Dominance space via the mapping given in Table \ref{tab:vadtable} first, and perturbing the points with normally distributed noise with standard deviation 0.01, to reflect the effect of multiple annotators.
+
+The whole data formation process can be seen in Figure \ref{fig:dataformation}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{Presentation.png}
+\caption{The data formation steps used to augment data from MELD dataset}\label{fig:dataformation}
+\end{figure}
 
 \pagebreak
+
+
 
 \section{Results and Discussion} \label{sec:results}
 

@@ -1,17 +1,17 @@
 [0] Config.pm:311> INFO - This is Biber 2.16
 [0] Config.pm:314> INFO - Logfile is 'main.blg'
-[208] biber-MSWIN64:340> INFO - === 
-[280] Biber.pm:415> INFO - Reading 'main.bcf'
-[493] Biber.pm:952> INFO - Found 9 citekeys in bib section 0
-[517] Biber.pm:4340> INFO - Processing section 0
-[538] Biber.pm:4531> INFO - Looking for bibtex format file 'project.bib' for section 0
-[692] bibtex.pm:1689> INFO - LaTeX decoding ...
-[729] bibtex.pm:1494> INFO - Found BibTeX data source 'project.bib'
-[953] Utils.pm:395> WARN - BibTeX subsystem: C:\Users\KUTAYU~1\AppData\Local\Temp\biber_tmp_SVqn\601816ded5844b09deb07b2e18ce050e_10292.utf8, line 19, warning: 1 characters of junk seen at toplevel
-[977] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[978] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[978] Biber.pm:4168> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
-[978] Biber.pm:4174> INFO - No sort tailoring available for locale 'en-US'
-[999] bbl.pm:654> INFO - Writing 'main.bbl' with encoding 'UTF-8'
-[1023] bbl.pm:757> INFO - Output to main.bbl
-[1023] Biber.pm:128> INFO - WARNINGS: 1
+[195] biber-MSWIN64:340> INFO - === 
+[261] Biber.pm:415> INFO - Reading 'main.bcf'
+[444] Biber.pm:952> INFO - Found 9 citekeys in bib section 0
+[464] Biber.pm:4340> INFO - Processing section 0
+[483] Biber.pm:4531> INFO - Looking for bibtex format file 'project.bib' for section 0
+[592] bibtex.pm:1689> INFO - LaTeX decoding ...
+[624] bibtex.pm:1494> INFO - Found BibTeX data source 'project.bib'
+[794] Utils.pm:395> WARN - BibTeX subsystem: C:\Users\KUTAYU~1\AppData\Local\Temp\biber_tmp_bynD\601816ded5844b09deb07b2e18ce050e_7092.utf8, line 19, warning: 1 characters of junk seen at toplevel
+[818] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[818] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[818] Biber.pm:4168> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
+[818] Biber.pm:4174> INFO - No sort tailoring available for locale 'en-US'
+[837] bbl.pm:654> INFO - Writing 'main.bbl' with encoding 'UTF-8'
+[859] bbl.pm:757> INFO - Output to main.bbl
+[860] Biber.pm:128> INFO - WARNINGS: 1
