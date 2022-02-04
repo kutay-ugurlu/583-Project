@@ -205,6 +205,7 @@ metrik_val = model.evaluate(val_data_2,val_list)
 print(metrik_val)
 print("Second Eval CCC ave= ", np.mean(metrik_val[-3:]))
 data["Second Eval"] = np.mean(metrik_val[-3:])
+data["Second Eval whole"] = metrik_val[-3:]
 
 
 ## Train Test Split 

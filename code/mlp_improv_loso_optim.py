@@ -139,6 +139,7 @@ for i in range(0, 3):
     # print("# ", ccc)
 
 data["Second Eval"] = np.mean(ccc)
+data["Second Eval whole"] = ccc
 
 
 

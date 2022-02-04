@@ -4,8 +4,12 @@
 # changelog:
 # 2020/01/28: create names mlp_iemocap_paa
 
+import os
+import json
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler, MinMaxScaler, RobustScaler
 import numpy as np
-import pandas as pd 
+import pandas as pd
 import random as rn
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
 from sklearn.neural_network import MLPRegressor
@@ -92,18 +96,17 @@ for i in range(0, 3):
     # print("# ", ccc)
 
 
-
 data = {}
 
 data["First Eval"] = np.mean(ccc)
 
-import numpy as np 
-from sklearn.preprocessing import StandardScaler, MinMaxScaler, RobustScaler
-from sklearn.model_selection import train_test_split
 
-val_data_2 = np.load("C:/Users/Kutay/Desktop/deep_mlp_ser/data/MELDRaw/MELD_test_data_no_neutral.npy")
-val_label_2 = np.load("C:/Users/Kutay/Desktop/deep_mlp_ser/data/MELDRaw/MELD_labels_no_neutral.npy")
-val_label_2 += .01 * np.random.randn(val_label_2.shape[0],val_label_2.shape[1])
+val_data_2 = np.load(
+    "C:/Users/Kutay/Desktop/deep_mlp_ser/data/MELDRaw/MELD_test_data_no_neutral.npy")
+val_label_2 = np.load(
+    "C:/Users/Kutay/Desktop/deep_mlp_ser/data/MELDRaw/MELD_labels_no_neutral.npy")
+val_label_2 += .01 * \
+    np.random.randn(val_label_2.shape[0], val_label_2.shape[1])
 
 scaled_feature = True
 
@@ -138,7 +141,7 @@ for i in range(0, 3):
     # print("# ", ccc)
 
 data["Second Eval"] = np.mean(ccc)
-
+data["Second Eval whole"] = ccc
 
 
 nn = MLPRegressor(
@@ -149,8 +152,8 @@ nn = MLPRegressor(
     n_iter_no_change=100)
 
 
-
-X_train, X_test, y_train, y_test = train_test_split(val_data_2, val_label_2, test_size=0.33, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(
+    val_data_2, val_label_2, test_size=0.33, random_state=42)
 
 
 nn = nn.fit(X_train, y_train)
@@ -165,8 +168,6 @@ for i in range(0, 3):
 
 data["Third Eval"] = np.mean(ccc)
 
-import json
-import os 
 
 script_name = os.path.basename(__file__)
 with open('JSONs/' + script_name + '_data.json', 'w') as f:
