@@ -7,17 +7,14 @@
 %\renewcommand{\baselinestretch}{1.9}
 \usepackage{graphicx}
 %\usepackage{cite}
-\usepackage[
-sorting=ynt,
-style=ieee
-]{biblatex}
+\usepackage[style=ieee, nohashothers=true, nosortothers=true, uniquelist=true, natbib=true, backend=biber]{biblatex}
+\DefineBibliographyStrings{english}{andothers={}}
+
 \addbibresource{project.bib}
 \DeclareFieldFormat[article]{volume}{Vol. #1}
 \DeclareFieldFormat[article]{number}{No. #1}
 \DeclareFieldFormat[article]{pages}{p. #1}
 \DeclareFieldFormat[inproceedings]{pages}{p. #1}
-
-
 
 %\documentclass[journal]{IEEEtran}
 \usepackage[a4paper, total={6in, 8.5in}, top=1in, bottom=1in, left=1in, right=1in]{geometry}
@@ -35,8 +32,10 @@ style=ieee
 \usepackage[hidelinks]{hyperref}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage{babel}
+\usepackage[english]{babel}
 \usepackage{csquotes}
+\usepackage{booktabs}
+\usepackage{multicol}
 
 \usepackage{caption}
 \usepackage{subcaption}
@@ -98,23 +97,115 @@ Inspection of \textit{Deep Multilayer Perceptrons for Dimensional Speech Emotion
 
 \section{Introduction}
 
-The paper is~\cite{atmaja2020deep} and this is~\cite{Ahmad1998}.
+Speech emotion recognition is the task of extracting the emotion category from either text or audio data. It has already some applications in security, medicine, entertainment and education \cite{cen2016real}. 
+
+This project report investigates the idea that Atmaja \textit{et al.}stated in \textit{Deep Multilayer Perceptrons for Dimensional Speech Emotion Recognition}~\cite{atmaja2020deep}. The authors of the study discusses the need of utilizing modern computation units, such as Long Short Term Memory(LSTMs) and Convolutional Neural Networks(CNNs), in the neural networks for the task of dimensional speech emotion recognition. 
+
+The organization of the report is as follows:
+\begin{itemize}
+    \item The problem and the proposed solutions to it are briefly introduced in this section.
+    \item The theory of dimensional and categorical emotions are mentioned in Section \ref{sec:theory}.
+    \item The methods, datasets and neural network architectures used in the implementation of the speech emotion recognition can be seen in Section \ref{sec:implementation}.
+    \item Section \ref{sec:results} is left for the definition of the evaluation metrics utilized in the study, the reproduced results, and evaluation of the models with other datasets.  
+\end{itemize}
 
 \pagebreak
 
-\section{Theory}
+\section{Theory} \label{sec:theory}
+
+The idea that emotion categories can be separated based on some emotional dimensions dates back to 1979. Russel argued in \cite{russell1979affective} that categorical emotions, namely sadness, anger, joy, etc., can be classified by the values they represent in three dimensions: Valence, Arousal and Dominance.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{dimensions_pic.png}
+\caption{Categorical Emotions in VAD space \cite{bualan2020emotion}}\label{fig:dimensions}
+\end{figure}
+
+\begin{table}[h]
+    \centering{
+\begin{tabular}{cccc} \toprule \toprule
+     & Valence & Arousal & Dominance \\ \midrule
+    Anger  & -0.43 & 0.67 & 0.34  \\ \midrule
+    Joy  & 0.76  & 0.48 & 0.35   \\ \midrule
+    Surprise  & 0.4  & 0.67 & -0.13   \\ \midrule
+    Disgust  & -0.6  & 0.35 & 0.11   \\ \midrule
+    Fear  & -0.64   & 0.6 & -0.43    \\ \midrule
+    Sadness  & -0.63  & 0.27 & -0.33   \\ \bottomrule \bottomrule
+\end{tabular}
+}
+\caption{\label{tab:vadtable}VAD Dimensions of 6 basic emotions \cite{bualan2020emotion}.}
+\end{table}
+
+
 
 \pagebreak
 
-\section{Implementation}
+\section{Implementation} \label{sec:implementation}
+
+\subsection{Data} 
+
+\subsubsection{Datasets}
+
+There are mainly two datasets utilized in the paper. 
+\begin{enumerate}
+    \item \textbf{IEMOCAP(The Interactive emotional Dyadic Motion Capture database):} 12 hours of speech data consisting of 10039 utterances  is used \cite{busso2008iemocap}.
+    \item \textbf{MSP-IMPROV:} 18 hours of speech data consisting of 8438 utterances is used \cite{busso2016msp}.
+\end{enumerate}
+
+\subsubsection{Data preprocessing} \label{subsec:datapreprocess}
+
+The shared data in \cite{atmaja2020deep} are already preprocessed and the scripts and tools the authors utilized was not explicitly shared. However, the types of features Atmaja \textit{et al.} used is shared in the paper.  
+The audio in the dataset are used to extract 47 features per utterance.
+These features are obtained in a 2-level process. First, the Low Level Descriptors defined in \cite{eyben2010opensmile} are calculated by the \texttt{opensmile} software. These Low Level Descriptors are as follows: 
+\begin{multicols}{3}
+\begin{itemize}
+    \item Intensity
+    \item Alpha ratio
+    \item Hammarberg index
+    \item Spectral slope 0-500 Hz
+    \item Spectral slope 500-1500 Hz
+    \item Spectral flux
+    \item 4 MFCCs
+    \item $\mathcal{f}=0$
+    \item jitter
+    \item shimmer
+    \item Harmonics-to-Noise Ratio (HNR)
+    \item Harmonic difference H1-H2
+    \item Harmonic difference H1-A3
+    \item F1
+    \item F1 bandwidth
+    \item F1 amplitude
+    \item F2
+    \item F2 amplitude
+    \item F3 
+    \item F3 amplitude
+\end{itemize}
+\end{multicols}
+
+Then, 47 features, High Statistical Functions of these 23 features are calculated in two sets by utilizing the mean and standard deviation. In addition, authors defined an extra feature: Silence. The silence is defined as the ratio of the silent frames per utterance. 
+\begin{equation}
+    S = \frac{N_s}{N_t}
+\end{equation}
+where $N_s$ is the number of silent frames and $N_t$ is the number of total frames.
+The framed are labelled as silent by being compared to a threshold. 
+\begin{equation}
+    Threshold = 0.3 \times X_{RMS}
+\end{equation} 
+and 
+\begin{equation}
+    X_{RMS} = \sqrt{\frac{1}{n}\sum_{i=1}^n{x[i]}^2}
+\end{equation} 
+where the factor 0.3 is determined empirically.
+\subsection{Models}
+
+The multiplayer perceptron models are implemented with Scikit-learn's MLP Regressor \cite{scikit-learn} and the remaining CNN and LSTM models are implemented with Tensorflow \cite{tensorflow2015-whitepaper}.
 
 \pagebreak
 
-\section{Results and Discussion}
+\section{Results and Discussion} \label{sec:results}
 
 \pagebreak
 
 \printbibliography
-
 
 \end{document}

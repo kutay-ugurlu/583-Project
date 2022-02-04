@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 22.1) (preloaded format=xelatex 2022.2.4)  4 FEB 2022 02:33
+This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 22.1) (preloaded format=xelatex 2022.2.4)  4 FEB 2022 16:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -284,6 +284,15 @@ File: biblatex.def 2020/12/31 v3.16 biblatex compatibility (PK/MW)
 \biburlucskip=\muskip19
 \biburllcskip=\muskip20
 \c@smartand=\count378
+)
+Package biblatex Info: Trying to load natbib compatibility...
+Package biblatex Info: ... file 'blx-natbib.def' found.
+
+(C:\Users\KutayUgurlu\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\blx-natb
+ib.def
+File: blx-natbib.def 2020/12/31 v3.16 biblatex compatibility (PK/MW)
+Package biblatex Info: Delimiter 'nameyeardelim' in context '' already defined,
+ overwriting.
 )
 Package biblatex Info: Trying to load bibliography style 'ieee'...
 Package biblatex Info: ... file 'ieee.bbx' found.
@@ -796,11 +805,15 @@ def))
 File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
  babel
 )
-Package babel Info: You haven't specified a language. I'll use 'nil'
-(babel)             as the main language. Reported on input line 4299.
- (C:\Users\KutayUgurlu\AppData\Local\Programs\MiKTeX\tex/generic/babel\nil.ldf
-Language: nil 2021/12/30 3.69 Nil language
-\l@nil=\language81
+(C:\Users\KutayUgurlu\AppData\Local\Programs\MiKTeX\tex/latex/babel-english\eng
+lish.ldf
+Language: english 2017/06/06 v3.3r English support from the babel system
+Package babel Info: Hyphen rules for 'canadian' set to \l@english
+(babel)             (\language0). Reported on input line 102.
+Package babel Info: Hyphen rules for 'australian' set to \l@ukenglish
+(babel)             (\language73). Reported on input line 105.
+Package babel Info: Hyphen rules for 'newzealand' set to \l@ukenglish
+(babel)             (\language73). Reported on input line 108.
 ))
 (C:\Users\KutayUgurlu\AppData\Local\Programs\MiKTeX\tex/latex/csquotes\csquotes
 .sty
@@ -824,14 +837,105 @@ Package csquotes Info: ... configuration file loaded successfully.
 .cfg
 File: csquotes.cfg 
 ))
+(C:\Users\KutayUgurlu\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs
+.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen190
+\lightrulewidth=\dimen191
+\cmidrulewidth=\dimen192
+\belowrulesep=\dimen193
+\belowbottomsep=\dimen194
+\aboverulesep=\dimen195
+\abovetopsep=\dimen196
+\cmidrulesep=\dimen197
+\cmidrulekern=\dimen198
+\defaultaddspace=\dimen199
+\@cmidla=\count443
+\@cmidlb=\count444
+\@aboverulesep=\dimen256
+\@belowrulesep=\dimen257
+\@thisruleclass=\count445
+\@lastruleclass=\count446
+\@thisrulewidth=\dimen258
+)
+(C:\Users\KutayUgurlu\AppData\Local\Programs\MiKTeX\tex/latex/tools\multicol.st
+y
+Package: multicol 2021/10/28 v1.9b multicolumn formatting (FMi)
+\c@tracingmulticols=\count447
+\mult@box=\box62
+\multicol@leftmargin=\dimen259
+\c@unbalance=\count448
+\c@collectmore=\count449
+\doublecol@number=\count450
+\multicoltolerance=\count451
+\multicolpretolerance=\count452
+\full@width=\dimen260
+\page@free=\dimen261
+\premulticols=\dimen262
+\postmulticols=\dimen263
+\multicolsep=\skip102
+\multicolbaselineskip=\skip103
+\partial@page=\box63
+\last@line=\box64
+\maxbalancingoverflow=\dimen264
+\mult@rightbox=\box65
+\mult@grightbox=\box66
+\mult@firstbox=\box67
+\mult@gfirstbox=\box68
+\@tempa=\box69
+\@tempa=\box70
+\@tempa=\box71
+\@tempa=\box72
+\@tempa=\box73
+\@tempa=\box74
+\@tempa=\box75
+\@tempa=\box76
+\@tempa=\box77
+\@tempa=\box78
+\@tempa=\box79
+\@tempa=\box80
+\@tempa=\box81
+\@tempa=\box82
+\@tempa=\box83
+\@tempa=\box84
+\@tempa=\box85
+\@tempa=\box86
+\@tempa=\box87
+\@tempa=\box88
+\@tempa=\box89
+\@tempa=\box90
+\@tempa=\box91
+\@tempa=\box92
+\@tempa=\box93
+\@tempa=\box94
+\@tempa=\box95
+\@tempa=\box96
+\@tempa=\box97
+\@tempa=\box98
+\@tempa=\box99
+\@tempa=\box100
+\@tempa=\box101
+\@tempa=\box102
+\@tempa=\box103
+\@tempa=\box104
+\c@minrows=\count453
+\c@columnbadness=\count454
+\c@finalcolumnbadness=\count455
+\last@try=\dimen265
+\multicolovershoot=\dimen266
+\multicolundershoot=\dimen267
+\mult@nat@firstbox=\box105
+\colbreak@box=\box106
+\mc@col@check@num=\count456
+)
 (C:\Users\KutayUgurlu\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.s
 ty
 Package: caption 2020/10/26 v3.5g Customizing captions (AR)
-\c@caption@flags=\count443
-\c@continuedfloat=\count444
+\c@caption@flags=\count457
+\c@continuedfloat=\count458
 Package caption Info: changepage package is loaded.
-\caption@adjustwidth@hsize=\dimen190
-\caption@adjustwidth@linewidth=\dimen191
+\caption@adjustwidth@hsize=\dimen268
+\caption@adjustwidth@linewidth=\dimen269
 Package caption Info: float package is loaded.
 Package caption Info: floatrow package is loaded.
 Package caption Info: hyperref package is loaded.
@@ -840,67 +944,62 @@ Package caption Info: listings package is loaded.
 (C:\Users\KutayUgurlu\AppData\Local\Programs\MiKTeX\tex/latex/caption\subcaptio
 n.sty
 Package: subcaption 2020/10/07 v1.3j Sub-captions (AR)
-\c@subfigure=\count445
-\c@subtable=\count446
+\c@subfigure=\count459
+\c@subtable=\count460
 )
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
-
-
-Package csquotes Warning: No style for language 'nil'.
-(csquotes)                Using fallback style on input line 71.
-
-Package csquotes Info: Redefining alias 'default' -> 'fallback'.
+Package csquotes Info: Redefining alias 'default' -> 'english'.
 
 (C:\Users\KutayUgurlu\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backe
 nd-xetex.def
 File: l3backend-xetex.def 2022-01-12 L3 backend support: XeTeX
  ()
-\c__kernel_sys_dvipdfmx_version_int=\count447
-\l__color_backend_stack_int=\count448
-\g__color_backend_stack_int=\count449
-\g__graphics_track_int=\count450
-\l__pdf_internal_box=\box62
-\g__pdf_backend_object_int=\count451
-\g__pdf_backend_annotation_int=\count452
-\g__pdf_backend_link_int=\count453
+\c__kernel_sys_dvipdfmx_version_int=\count461
+\l__color_backend_stack_int=\count462
+\g__color_backend_stack_int=\count463
+\g__graphics_track_int=\count464
+\l__pdf_internal_box=\box107
+\g__pdf_backend_object_int=\count465
+\g__pdf_backend_annotation_int=\count466
+\g__pdf_backend_link_int=\count467
 ) (main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 71.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 70.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 7
-1.
+0.
 
 (C:\Users\KutayUgurlu\AppData\Local\Programs\MiKTeX\tex/latex/base\ts1cmr.fd
 File: ts1cmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-Package biblatex Info: Trying to load language 'nil'...
-Package biblatex Info: ... file 'nil.lbx' not found.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+Package biblatex Info: Trying to load language 'english'...
+Package biblatex Info: ... file 'english.lbx' found.
 
-
-Package biblatex Warning: Language 'nil' not supported.
-(biblatex)                Using dummy definitions on input line 71.
-
+(C:\Users\KutayUgurlu\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/lbx\engl
+ish.lbx
+File: english.lbx 2020/12/31 v3.16 biblatex localization (PK/MW)
+)
 Package biblatex Info: XeTeX detected.
 (biblatex)             Assuming input encoding 'utf8'.
 Package biblatex Info: Automatic encoding selection.
@@ -929,8 +1028,8 @@ Package: blx-case-expl3 2020/12/31 v3.16 expl3 case changing code for biblatex
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'main.bbl' found.
  (main.bbl)
-Package biblatex Info: Reference section=0 on input line 71.
-Package biblatex Info: Reference segment=0 on input line 71.
+Package biblatex Info: Reference section=0 on input line 70.
+Package biblatex Info: Reference segment=0 on input line 70.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -966,10 +1065,10 @@ Package biblatex Info: Reference segment=0 on input line 71.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\c@lstlisting=\count454
+\c@lstlisting=\count468
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring OFF on input line 71.
+Package hyperref Info: Link coloring OFF on input line 70.
 
 (C:\Users\KutayUgurlu\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.
 sty
@@ -983,11 +1082,11 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count455
+\c@section@level=\count469
 )
-LaTeX Info: Redefining \ref on input line 71.
-LaTeX Info: Redefining \pageref on input line 71.
-LaTeX Info: Redefining \nameref on input line 71.
+LaTeX Info: Redefining \ref on input line 70.
+LaTeX Info: Redefining \pageref on input line 70.
+LaTeX Info: Redefining \nameref on input line 70.
  (main.out) (main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
@@ -997,64 +1096,44 @@ LaTeX Info: Redefining \nameref on input line 71.
 .sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 95.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 94.
 
 
 (C:\Users\KutayUgurlu\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 95.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 94.
 
 (C:\Users\KutayUgurlu\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-] [2] [3] [4] [5]
-
-Package biblatex Warning: Bibliography string 'and' untranslated
-(biblatex)                at entry 'Ahmad1998' on input line 117.
-
-
-Package biblatex Warning: Using fallback definition for \mkbibdatelong.
-(biblatex)                The command should be defined in the .lbx file.
-(biblatex)                If you see this message, the .lbx file could not be
-(biblatex)                loaded, is faulty or does not contain a definition
-(biblatex)                for \mkbibdatelong.
-
+] [2]
+File: dimensions_pic.png Graphic file (type bmp)
+<dimensions_pic.png>
+ [3]
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
-17.
+59.
+
 (C:\Users\KutayUgurlu\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-
-Package biblatex Warning: Bibliography string 'and' untranslated
-(biblatex)                at entry 'atmaja2020deep' on input line 117.
-
-
-Package biblatex Warning: Bibliography string 'in' untranslated
-(biblatex)                at entry 'atmaja2020deep' on input line 117.
-
-
-Package biblatex Warning: Using fallback definition for \mkbibdatelong.
-(biblatex)                The command should be defined in the .lbx file.
-(biblatex)                If you see this message, the .lbx file could not be
-(biblatex)                loaded, is faulty or does not contain a definition
-(biblatex)                for \mkbibdatelong.
-
+[4] [5]
+Missing character: There is no ă in font ec-lmr10!
 [6] (main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: E797045B76F671956939F0E4A7D437AE;448.
+(rerunfilecheck)             Checksum: 3703CE7B0D69E4E4DD33640B3C1C234A;879.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 22474 strings out of 410978
- 383020 string characters out of 2822796
- 1122515 words of memory out of 3000000
- 42953 multiletter control sequences out of 15000+600000
- 505455 words of font info for 64 fonts, out of 8000000 for 9000
+ 23507 strings out of 410978
+ 402759 string characters out of 2822796
+ 1168196 words of memory out of 3000000
+ 43973 multiletter control sequences out of 15000+600000
+ 506023 words of font info for 65 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 68i,11n,76p,1502b,4844s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 68i,11n,76p,1124b,4763s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on main.pdf (6 pages).
