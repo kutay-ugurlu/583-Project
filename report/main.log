@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 22.1) (preloaded format=xelatex 2022.2.4)  4 FEB 2022 19:47
+This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 22.1) (preloaded format=xelatex 2022.2.4)  4 FEB 2022 21:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1140,28 +1140,25 @@ File: modelsparams.png Graphic file (type bmp)
 <modelsparams.png>
 File: modelparamsmlp.png Graphic file (type bmp)
 <modelparamsmlp.png>
+ [6]
 File: Presentation.png Graphic file (type bmp)
 <Presentation.png>
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[6] [7]
+ [7] [8]
 Missing character: There is no ă in font ec-lmr10!
-[8] (main.aux)
+[9] (main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 3F4726E9ACE3A5DF709C030EF8220F57;1617.
+(rerunfilecheck)             Checksum: 29CAA5ED06BE828DC114F2F04CCD5162;1918.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 23850 strings out of 410978
- 407650 string characters out of 2822796
- 1175593 words of memory out of 3000000
- 44307 multiletter control sequences out of 15000+600000
+ 23853 strings out of 410978
+ 407691 string characters out of 2822796
+ 1175691 words of memory out of 3000000
+ 44310 multiletter control sequences out of 15000+600000
  509013 words of font info for 66 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 68i,11n,76p,1124b,4762s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 68i,11n,76p,1220b,4762s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (8 pages).
+Output written on main.pdf (9 pages).

@@ -201,7 +201,7 @@ Then, 47 features, High Statistical Functions of these 23 features are calculate
     S = \frac{N_s}{N_t}
 \end{equation}
 where $N_s$ is the number of silent frames and $N_t$ is the number of total frames.
-The framed are labelled as silent by being compared to a threshold. 
+The frames are labelled as silent by being compared to a threshold. 
 \begin{equation}
     Threshold = 0.3 \times X_{RMS}
 \end{equation} 
@@ -210,6 +210,10 @@ and
     X_{RMS} = \sqrt{\frac{1}{n}\sum_{i=1}^n{x[i]}^2}
 \end{equation} 
 where the factor 0.3 is determined empirically.
+
+\paragraph{Scaling}
+Both the data and the labels that were originally labelled in the range $[-5,5]$ are scaled to the range [-1,1] in ReLU activated CNNs and LSTM networks. 
+
 \subsubsection{Models}
 
 The benchmark models which authors use to compare the model performance are composed of CNN and LSTM units. The authors use the same number of units and layers in the model. In Figure \ref{fig:models}, it can be seen that the models have approximately the same number of trainable parameters. 
@@ -232,6 +236,21 @@ The multiplayer perceptron models are implemented with scikit-learn's MLP Regres
 \label{fig:models}
 \end{figure}
 
+\paragraph{Loss Function: CCC Loss}
+
+To optimize the network, Concordance Correlation Coefficient in Eqn. \ref{eq:CCC} is used. 
+\begin{equation}
+    CCC = \frac{2\rho{\sigma_x}{\sigma_y}}{{\sigma_x}^2 + {\sigma_y}^2 + (\mu_x - \mu_y)^2}
+    \label{eq:CCC}
+\end{equation}
+
+Then, the loss can be found as $CCCL = 1 - CCC$.
+
+The total loss with respect to this loss is defined to be the sum of loss of individual classes follows:
+\begin{equation}
+    CCCL_T = CCCL_V + CCCL_A + CCCL_D
+    \label{eq:CCCLoss}
+\end{equation}
 
 \subsection{Changes made}
 
@@ -240,7 +259,7 @@ The multiplayer perceptron models are implemented with scikit-learn's MLP Regres
 \paragraph{Datasets}
 
 The authors of the study made use of the most of the databases whose utterances are labelled by multiple annotators in the Valence-Arousal-Dominance dimension. 
-Although there are many available datasets on Speech Emotion Recognition, only a few of them are labelled in the same manner. However, these datasets were not available for open access. The remaining available datasets are either labelled categorically, \textit{i.e.} sad, joy, anger etc. or labelled only in 2 dimension: Valence and Arousal. Since the latter option requires one to re-train the model and does not provide one with the chance of evaluating the pretrained model with the new test data, categorical dataset, MELD \cite{atmaja2020deep}, was used for the evaluation. The dataset consists of utterances in mp4 format from the TV series ''Friends'' and the categorical emotion regarding these utterances. 
+Although there are many available datasets on Speech Emotion Recognition, only a few of them are labelled in the same manner. However, these datasets were not available for open access. The remaining available datasets are either labelled categorically, \textit{i.e.} sad, joy, anger etc. or labelled only in 2 dimension: Valence and Arousal. Since the latter option requires one to re-train the model and does not provide one with the chance of evaluating the pretrained model with the new test data, categorical dataset, MELD \cite{atmaja2020deep}, was used for the evaluation. The dataset consists of utterances in mp4 format from the TV series ''Friends'' and the categorical emotions regarding these utterances. The number of labeled utterance is 2610. However, the number of utterances labelled as ''neutral'' in the emotions, which corresponds to the origin of the Valence-Arousal-Dominance space, was exceedingly higher than the others, and it was causing problems in both class-imbalance sense and in the learning part of the regression networks, hence those samples were dropped from the dataset.
 
 \paragraph{Data Preprocessing}
 
