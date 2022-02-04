@@ -194,7 +194,7 @@ data["Second Eval whole"] = metrik_val[-3:]
 print(val_data_2.shape, val_label_2.shape)
 print(val_label_2)
 X_train, X_test, y_train, y_test = train_test_split(
-    val_data_2, val_label_2, test_size=0.33, random_state=42)
+    val_data_2, np.transpose(val_label_2), test_size=0.2, random_state=42)
 
 
 model = api_model(0.1, 0.5, 0.4)
