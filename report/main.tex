@@ -39,6 +39,7 @@
 \usepackage{titlesec}
 \usepackage{fontawesome5}
 \usepackage{makecell}
+\usepackage{footnote}
 
 \setcounter{secnumdepth}{4}
 \setcounter{tocdepth}{4}
@@ -65,6 +66,8 @@
 
 \renewcommand{\headrulewidth}{.4mm} % header line width
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\renewcommand\footnoterule{\kern-3pt \hrule width 3in \noindent \kern 2.6pt}
+
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -261,7 +264,7 @@ However, the authors state that they could not find a way to implement this loss
 
 \subsection{Modifications}
 
-The software provided in the \href{https://github.com/bagustris/deep_mlp_ser}{repository \faExternalLink*} is copied via \texttt{git clone} and some additional changes made on the repository. The modified version is shared \href{https://github.com/kutay-ugurlu/583-Project}{here \faExternalLink*}.
+The software provided in the \href{https://github.com/bagustris/deep_mlp_ser}{repository \faExternalLink*} \footnote{https://github.com/bagustris/deep\_mlp\_ser} is copied via \texttt{git clone} and some additional changes made on the repository. The modified version is shared \href{https://github.com/kutay-ugurlu/583-Project}{here \faExternalLink*}\footnote{ https://github.com/kutay-ugurlu/583-Project}.
 
 \subsubsection{Data}\label{subsec:MELDdata}
 
@@ -288,25 +291,25 @@ The data processing steps shown above visually in Figure \ref{fig:dataformation}
 
 \subsubsection{Models}
 
-The pre-trained models are evaluated using the new test data. Furthermore, to make better conclusions on the models' capability to fit the data, the data is split to train, test and validation sets and the model is evaluated after being retrained. The architectures of the model were not changed. The only change made was the number of training and patience epoch for early stopping. 
+The pre-trained models are evaluated using the new test data. Furthermore, to make better conclusions on the models' capability to fit the data, the data is split to train, test and validation sets and the model is evaluated after being retrained. The architectures of the model were not changed. The only change made was the number of training and patience epoch for early stopping. The comparison was only made for speaker independent case due to the 
 
 \section{Results and Discussion} \label{sec:results}
 \begin{table}[h]
     \centering
-    \begin{tabular}{lccccc}
+    \begin{tabular}{cccccc}
         \toprule
         {} &  \makecell{Original\\ Mean CCC} &  \makecell{Tested\\ Valence CCC} &  \makecell{Tested\\ Arousal CCC} &  \makecell{Tested\\ Dominance CCC} &  \makecell{Trained \\Mean CCC} \\
         \midrule
-        CNN IEMOCAP  &              0.330 &               0.022 &               0.043 &                 0.043 &             0.130 \\
-        CNN IMPROV   &              0.372 &              -0.000 &              -0.000 &                -0.000 &             0.103 \\
-        CNN MIXED    &              0.204 &               0.032 &               0.046 &                 0.046 &             0.119 \\
-        LSTM IEMOCAP &              0.359 &               0.013 &              -0.000 &                -0.000 &             0.118 \\
-        LSTM IMPROV  &              0.338 &              -0.001 &              -0.003 &                -0.003 &             0.113 \\
-        LSTM MIXED   &              0.215 &              -0.008 &              -0.002 &                -0.002 &             0.118 \\
-        MLP IEMOCAP  &              0.434 &               0.042 &               0.020 &                 0.020 &             0.005 \\
-        MLP IEMOCAP  &              0.434 &               0.042 &               0.020 &                 0.020 &             0.005 \\
-        MLP IMPROV   &              0.419 &               0.035 &              -0.058 &                -0.058 &             0.005 \\
-        MLP IMPROV   &              0.419 &               0.035 &              -0.058 &                -0.058 &             0.005 \\
+        CNN IEMOCAP  &              0.330 &               0.022 &               0.043 &                 0.043 &             0.130 \\ \midrule
+        CNN IMPROV   &              0.372 &              -0.000 &              -0.000 &                -0.000 &             0.103 \\\midrule
+        CNN MIXED    &              0.204 &               0.032 &               0.046 &                 0.046 &             0.119 \\\midrule
+        LSTM IEMOCAP &              0.359 &               0.013 &              -0.000 &                -0.000 &             0.118 \\\midrule
+        LSTM IMPROV  &              0.338 &              -0.001 &              -0.003 &                -0.003 &             0.113 \\\midrule
+        LSTM MIXED   &              0.215 &              -0.008 &              -0.002 &                -0.002 &             0.118 \\\midrule
+        MLP IEMOCAP  &              0.434 &               0.042 &               0.020 &                 0.020 &             0.005 \\\midrule
+        % \makecell{MLP IEMOCAP \\ optimized}  &              0.434 &               0.042 &               0.020 &                 0.020 &             0.005 \\\midrule
+        MLP IMPROV   &              0.419 &               0.035 &              -0.058 &                -0.058 &             0.005 \\\midrule
+        % \makecell{MLP IMPROV \\ optimized}   &              0.419 &               0.035 &              -0.058 &                -0.058 &             0.005 \\\midrule
         MLP MIXED    &              0.294 &               0.104 &               0.050 &                 0.050 &             0.005 \\
         \bottomrule
         \end{tabular}
@@ -315,10 +318,16 @@ The pre-trained models are evaluated using the new test data. Furthermore, to ma
     \label{tab:CCCloss}
 \end{table}
 
-The CCC values obtained from the experiments are summarized in Table \ref{tab:CCCloss}. The \textbf{Original Mean CCC} columns represent the reproduced mean of three dimensional CCC results in the original paper \cite{atmaja2020deep}. Following three columns represent the values of the three dimensional evaluation results with the new test data in \ref{subsec:MELDdata}. The last column represent the values obtained from the experiments where the new test data is used both in training and evaluation.
+\indent The CCC values obtained from the experiments are summarized in Table \ref{tab:CCCloss}. The \textbf{Original Mean CCC} columns represent the reproduced mean of three dimensional CCC results in the original paper \cite{atmaja2020deep}. Following three columns represent the values of the three dimensional evaluation results with the new test data in \ref{subsec:MELDdata}. The last column represent the values obtained from the experiments where the new test data is used both in training and evaluation.
 
-    
-    
+One may notice the performance difference between the dataset by comparing the numbers in the 1st column with the following three ones. These results imply that the models trained with the datasets used in the study do not generalize to the other test data. The mean of the results of the \textbf{Trained Mean CCC} case is used to replace the different results with k-fold cross validation results. 
+
+One noticeable result is that mixing corpora, \textit{i.e.} forcing models to learn 2 different data distributions, resulted in poorer performance in the original study. This is expected, since the same model is being fitted to the two distributions, hence the prediction performance gets poorer in the test data from the same distributions. However, when we inspect the Multilayer perceptrons models in the second case, we observe a significantly increased generalization capability by three times. This may be due to the fact that this model has been trained on multiple different samples from multiple distributions, performing better in a never-seen sample. The same situation is also applicable for CNNs for the valence dimension of the regression.  
+
+% Training samples numbers
+% One dist vs two dist training difficulty
+% Cohen's Kappa
+% Train test split difference in the text not table
 
 \pagebreak
 
