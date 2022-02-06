@@ -1,0 +1,672 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global}
+    \entry{cen2016real}{article}{}
+      \name{author}{4}{}{%
+        {{hash=3c62e07be5e42ab925d0367d7ff22a48}{%
+           family={Cen},
+           familyi={C\bibinitperiod},
+           given={Ling},
+           giveni={L\bibinitperiod}}}%
+        {{hash=c5654e71e66a221926fe65772e9cc1a3}{%
+           family={Wu},
+           familyi={W\bibinitperiod},
+           given={Fei},
+           giveni={F\bibinitperiod}}}%
+        {{hash=f0ab482fbbe4f827b992485eebee58b5}{%
+           family={Yu},
+           familyi={Y\bibinitperiod},
+           given={Zhu\bibnamedelima Liang},
+           giveni={Z\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=14550d6bbfc8e63900baf2f71e77728a}{%
+           family={Hu},
+           familyi={H\bibinitperiod},
+           given={Fengye},
+           giveni={F\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{b1270b7e2a79501e42f990e61fe0b58f}
+      \strng{fullhash}{c25b82e9a00e0d6a0edc77a92501f510}
+      \strng{bibnamehash}{c25b82e9a00e0d6a0edc77a92501f510}
+      \strng{authorbibnamehash}{c25b82e9a00e0d6a0edc77a92501f510}
+      \strng{authornamehash}{b1270b7e2a79501e42f990e61fe0b58f}
+      \strng{authorfullhash}{c25b82e9a00e0d6a0edc77a92501f510}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Emotions, technology, design, and learning}
+      \field{title}{A real-time speech emotion recognition system and its application in online learning}
+      \field{year}{2016}
+      \field{pages}{27\bibrangedash 46}
+      \range{pages}{20}
+    \endentry
+    \entry{atmaja2020deep}{article}{}
+      \name{author}{2}{}{%
+        {{hash=042628679d9f32bb8f868d6ec2720cad}{%
+           family={Atmaja},
+           familyi={A\bibinitperiod},
+           given={B.\bibnamedelimi T.},
+           giveni={B\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+        {{hash=d14b9b37d1a890a70fec1a59b4494a04}{%
+           family={Akagi},
+           familyi={A\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{8ed31b883d0701e94558c0a5b3290390}
+      \strng{fullhash}{8ed31b883d0701e94558c0a5b3290390}
+      \strng{bibnamehash}{8ed31b883d0701e94558c0a5b3290390}
+      \strng{authorbibnamehash}{8ed31b883d0701e94558c0a5b3290390}
+      \strng{authornamehash}{8ed31b883d0701e94558c0a5b3290390}
+      \strng{authorfullhash}{8ed31b883d0701e94558c0a5b3290390}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{2020 Asia-Pacific Signal and Information Processing Association Annual Summit and Conference (APSIPA ASC)}
+      \field{title}{Deep multilayer Perceptrons for dimensional speech emotion recognition}
+      \field{year}{2020}
+      \field{pages}{325\bibrangedash 331}
+      \range{pages}{7}
+    \endentry
+    \entry{ser_deep_dl}{article}{}
+      \name{author}{6}{}{%
+        {{hash=b14e6c2fd28f2e21505df40aca2e3a6f}{%
+           family={Khalil},
+           familyi={K\bibinitperiod},
+           given={Ruhul\bibnamedelima Amin},
+           giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=0a898014a200130bb742af3ec3b1daa1}{%
+           family={Jones},
+           familyi={J\bibinitperiod},
+           given={Edward},
+           giveni={E\bibinitperiod}}}%
+        {{hash=930ddd1b3cc60fdae785d77ff8f496af}{%
+           family={Babar},
+           familyi={B\bibinitperiod},
+           given={Mohammad\bibnamedelima Inayatullah},
+           giveni={M\bibinitperiod\bibinitdelim I\bibinitperiod}}}%
+        {{hash=ce74947fb861b52de9f632f66e33e3d0}{%
+           family={Jan},
+           familyi={J\bibinitperiod},
+           given={Tariqullah},
+           giveni={T\bibinitperiod}}}%
+        {{hash=dcaf8025c6effe2c2ec68b8ec07e2fde}{%
+           family={Zafar},
+           familyi={Z\bibinitperiod},
+           given={Mohammad\bibnamedelima Haseeb},
+           giveni={M\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=07a1578cef88772adf68212882c5c204}{%
+           family={Alhussain},
+           familyi={A\bibinitperiod},
+           given={Thamer},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{d1ffc7befffb0eba916a8f17ee7b47be}
+      \strng{fullhash}{6196d48bf2cb3da7f7b986eb4a760ad3}
+      \strng{bibnamehash}{6196d48bf2cb3da7f7b986eb4a760ad3}
+      \strng{authorbibnamehash}{6196d48bf2cb3da7f7b986eb4a760ad3}
+      \strng{authornamehash}{d1ffc7befffb0eba916a8f17ee7b47be}
+      \strng{authorfullhash}{6196d48bf2cb3da7f7b986eb4a760ad3}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Access}
+      \field{title}{Speech Emotion Recognition Using Deep Learning Techniques: A Review}
+      \field{volume}{7}
+      \field{year}{2019}
+      \field{pages}{117327\bibrangedash 117345}
+      \range{pages}{19}
+      \verb{doi}
+      \verb 10.1109/ACCESS.2019.2936124
+      \endverb
+    \endentry
+    \entry{russell1979affective}{article}{}
+      \name{author}{1}{}{%
+        {{hash=8a07b5e47f5f5e912e00ac48236730f7}{%
+           family={Russell},
+           familyi={R\bibinitperiod},
+           given={J.\bibnamedelimi A.},
+           giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {American Psychological Association}%
+      }
+      \strng{namehash}{8a07b5e47f5f5e912e00ac48236730f7}
+      \strng{fullhash}{8a07b5e47f5f5e912e00ac48236730f7}
+      \strng{bibnamehash}{8a07b5e47f5f5e912e00ac48236730f7}
+      \strng{authorbibnamehash}{8a07b5e47f5f5e912e00ac48236730f7}
+      \strng{authornamehash}{8a07b5e47f5f5e912e00ac48236730f7}
+      \strng{authorfullhash}{8a07b5e47f5f5e912e00ac48236730f7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of personality and social psychology}
+      \field{number}{3}
+      \field{title}{Affective space is bipolar.}
+      \field{volume}{37}
+      \field{year}{1979}
+      \field{pages}{345}
+      \range{pages}{1}
+    \endentry
+    \entry{bualan2020emotion}{article}{}
+      \name{author}{6}{}{%
+        {{hash=2d61efa28ffd8df7dc962828f6538def}{%
+           family={Bălan},
+           familyi={B\bibinitperiod},
+           given={Oana},
+           giveni={O\bibinitperiod}}}%
+        {{hash=463d7b5d2f2d5d093eacf4ab43a6d74e}{%
+           family={Moise},
+           familyi={M\bibinitperiod},
+           given={Gabriela},
+           giveni={G\bibinitperiod}}}%
+        {{hash=92ff30c60dc4380c4fb28dd71bef8627}{%
+           family={Petrescu},
+           familyi={P\bibinitperiod},
+           given={Livia},
+           giveni={L\bibinitperiod}}}%
+        {{hash=cc2760d0088319608859d6f3463e2f87}{%
+           family={Moldoveanu},
+           familyi={M\bibinitperiod},
+           given={Alin},
+           giveni={A\bibinitperiod}}}%
+        {{hash=03e85ba8c54988cecb50997952b5dc71}{%
+           family={Leordeanu},
+           familyi={L\bibinitperiod},
+           given={Marius},
+           giveni={M\bibinitperiod}}}%
+        {{hash=b76636560ed99bdeb4f6ce5a33c7805c}{%
+           family={Moldoveanu},
+           familyi={M\bibinitperiod},
+           given={Florica},
+           giveni={F\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Multidisciplinary Digital Publishing Institute}%
+      }
+      \strng{namehash}{40411635aab7390ff4f3d91efd0a5511}
+      \strng{fullhash}{780ad480fcd224457e7cf0900382e5de}
+      \strng{bibnamehash}{780ad480fcd224457e7cf0900382e5de}
+      \strng{authorbibnamehash}{780ad480fcd224457e7cf0900382e5de}
+      \strng{authornamehash}{40411635aab7390ff4f3d91efd0a5511}
+      \strng{authorfullhash}{780ad480fcd224457e7cf0900382e5de}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Symmetry}
+      \field{number}{1}
+      \field{title}{Emotion classification based on biophysical signals and machine learning techniques}
+      \field{volume}{12}
+      \field{year}{2020}
+      \field{pages}{21}
+      \range{pages}{1}
+    \endentry
+    \entry{busso2008iemocap}{article}{}
+      \name{author}{9}{}{%
+        {{hash=4683a4fe891118929262807465faf90e}{%
+           family={Busso},
+           familyi={B\bibinitperiod},
+           given={Carlos},
+           giveni={C\bibinitperiod}}}%
+        {{hash=955626117ae198ff2487d09affd2341f}{%
+           family={Bulut},
+           familyi={B\bibinitperiod},
+           given={Murtaza},
+           giveni={M\bibinitperiod}}}%
+        {{hash=7379ae031567f63faa411fa72f6a3052}{%
+           family={Lee},
+           familyi={L\bibinitperiod},
+           given={Chi-Chun},
+           giveni={C\bibinithyphendelim C\bibinitperiod}}}%
+        {{hash=c850f1c37ac7cfcff5640cc7f16dff86}{%
+           family={Kazemzadeh},
+           familyi={K\bibinitperiod},
+           given={Abe},
+           giveni={A\bibinitperiod}}}%
+        {{hash=8dc86cb59101c59c5ead0aa6c74e36d1}{%
+           family={Mower},
+           familyi={M\bibinitperiod},
+           given={Emily},
+           giveni={E\bibinitperiod}}}%
+        {{hash=49a88585104dceacb8df5ce28f3b19e9}{%
+           family={Kim},
+           familyi={K\bibinitperiod},
+           given={Samuel},
+           giveni={S\bibinitperiod}}}%
+        {{hash=faba93a9addf82b317452554899aaffb}{%
+           family={Chang},
+           familyi={C\bibinitperiod},
+           given={Jeannette\bibnamedelima N},
+           giveni={J\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
+        {{hash=519d188b5fa93b50e121d83018fe7ee4}{%
+           family={Lee},
+           familyi={L\bibinitperiod},
+           given={Sungbok},
+           giveni={S\bibinitperiod}}}%
+        {{hash=71e10ffd792f723a9eb93a16e0d51c54}{%
+           family={Narayanan},
+           familyi={N\bibinitperiod},
+           given={Shrikanth\bibnamedelima S},
+           giveni={S\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{239952cb755c91aaa493ea8bd66ab219}
+      \strng{fullhash}{36116bb6d466950759f8bb3b8847defd}
+      \strng{bibnamehash}{239952cb755c91aaa493ea8bd66ab219}
+      \strng{authorbibnamehash}{239952cb755c91aaa493ea8bd66ab219}
+      \strng{authornamehash}{239952cb755c91aaa493ea8bd66ab219}
+      \strng{authorfullhash}{36116bb6d466950759f8bb3b8847defd}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Language resources and evaluation}
+      \field{number}{4}
+      \field{title}{IEMOCAP: Interactive emotional dyadic motion capture database}
+      \field{volume}{42}
+      \field{year}{2008}
+      \field{pages}{335\bibrangedash 359}
+      \range{pages}{25}
+    \endentry
+    \entry{busso2016msp}{article}{}
+      \name{author}{6}{}{%
+        {{hash=4683a4fe891118929262807465faf90e}{%
+           family={Busso},
+           familyi={B\bibinitperiod},
+           given={Carlos},
+           giveni={C\bibinitperiod}}}%
+        {{hash=c2c87bf6ff7bff9aff9987456ebf08ba}{%
+           family={Parthasarathy},
+           familyi={P\bibinitperiod},
+           given={Srinivas},
+           giveni={S\bibinitperiod}}}%
+        {{hash=ad78b448bd70936482a92a461109b74a}{%
+           family={Burmania},
+           familyi={B\bibinitperiod},
+           given={Alec},
+           giveni={A\bibinitperiod}}}%
+        {{hash=897c42eba6ec5c4d108db2d454f90567}{%
+           family={AbdelWahab},
+           familyi={A\bibinitperiod},
+           given={Mohammed},
+           giveni={M\bibinitperiod}}}%
+        {{hash=71f95ec88be963b0fc0e3af8979e2605}{%
+           family={Sadoughi},
+           familyi={S\bibinitperiod},
+           given={Najmeh},
+           giveni={N\bibinitperiod}}}%
+        {{hash=bc2ceaf5f63daedc84837c8a4893faf0}{%
+           family={Provost},
+           familyi={P\bibinitperiod},
+           given={Emily\bibnamedelima Mower},
+           giveni={E\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{d96e125b84289a46db02aa0bae41f54a}
+      \strng{fullhash}{872e1a17cb767535c1b2ea8c86b0c620}
+      \strng{bibnamehash}{872e1a17cb767535c1b2ea8c86b0c620}
+      \strng{authorbibnamehash}{872e1a17cb767535c1b2ea8c86b0c620}
+      \strng{authornamehash}{d96e125b84289a46db02aa0bae41f54a}
+      \strng{authorfullhash}{872e1a17cb767535c1b2ea8c86b0c620}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Affective Computing}
+      \field{number}{1}
+      \field{title}{MSP-IMPROV: An acted corpus of dyadic interactions to study emotion perception}
+      \field{volume}{8}
+      \field{year}{2016}
+      \field{pages}{67\bibrangedash 80}
+      \range{pages}{14}
+    \endentry
+    \entry{eyben2010opensmile}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=8d87463eeccc4eb4c15cc59e80fd89be}{%
+           family={Eyben},
+           familyi={E\bibinitperiod},
+           given={Florian},
+           giveni={F\bibinitperiod}}}%
+        {{hash=2978ee17e803b2348e0b292e0d6dcfbf}{%
+           family={Wöllmer},
+           familyi={W\bibinitperiod},
+           given={Martin},
+           giveni={M\bibinitperiod}}}%
+        {{hash=952e7ee348d058f9287a08ad1c034dbc}{%
+           family={Schuller},
+           familyi={S\bibinitperiod},
+           given={Björn},
+           giveni={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{b3d1bbe4f47ce228b7b740dab7322d8b}
+      \strng{fullhash}{b3d1bbe4f47ce228b7b740dab7322d8b}
+      \strng{bibnamehash}{b3d1bbe4f47ce228b7b740dab7322d8b}
+      \strng{authorbibnamehash}{b3d1bbe4f47ce228b7b740dab7322d8b}
+      \strng{authornamehash}{b3d1bbe4f47ce228b7b740dab7322d8b}
+      \strng{authorfullhash}{b3d1bbe4f47ce228b7b740dab7322d8b}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the 18th ACM international conference on Multimedia}
+      \field{title}{Opensmile: the munich versatile and fast open-source audio feature extractor}
+      \field{year}{2010}
+      \field{pages}{1459\bibrangedash 1462}
+      \range{pages}{4}
+    \endentry
+    \entry{scikit-learn}{article}{}
+      \name{author}{16}{}{%
+        {{hash=6e96fec0d63277626bb324bd28cdecb7}{%
+           family={Pedregosa},
+           familyi={P\bibinitperiod},
+           given={F.},
+           giveni={F\bibinitperiod}}}%
+        {{hash=b99c2df2144dc5ee09317a7833dea42d}{%
+           family={Varoquaux},
+           familyi={V\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod}}}%
+        {{hash=955f19cea89ae97bb7936078898e6255}{%
+           family={Gramfort},
+           familyi={G\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=2787869c9954c1d4e9891098995feb75}{%
+           family={Michel},
+           familyi={M\bibinitperiod},
+           given={V.},
+           giveni={V\bibinitperiod}}}%
+        {{hash=86d47ab9ca1a9dae108b4d4a0418c679}{%
+           family={Thirion},
+           familyi={T\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+        {{hash=d42f9e9cec95da1dad2232eac74982ab}{%
+           family={Grisel},
+           familyi={G\bibinitperiod},
+           given={O.},
+           giveni={O\bibinitperiod}}}%
+        {{hash=8bd8ef25258dd2311f92df23fe71ecf7}{%
+           family={Blondel},
+           familyi={B\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=a5ee41fa92b9e425806e1773853f1932}{%
+           family={Prettenhofer},
+           familyi={P\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+        {{hash=0c808557734e8929976d1f06f99c4ff2}{%
+           family={Weiss},
+           familyi={W\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod}}}%
+        {{hash=9662a6ea01596c6dd450817ccac81c4a}{%
+           family={Dubourg},
+           familyi={D\bibinitperiod},
+           given={V.},
+           giveni={V\bibinitperiod}}}%
+        {{hash=39e81a3e2193b954680a0ab847a0bb55}{%
+           family={Vanderplas},
+           familyi={V\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=14c4a498c032f77d0b83f86c710dd50e}{%
+           family={Passos},
+           familyi={P\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=dc075b18fb4710a1a37b258804c57efe}{%
+           family={Cournapeau},
+           familyi={C\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+        {{hash=67ec0e8add781665a43010c9559111e9}{%
+           family={Brucher},
+           familyi={B\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=dcb3918f09eb8785e6b212a907cc37cf}{%
+           family={Perrot},
+           familyi={P\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=ab20fcf381cd45daa82417c6fc595051}{%
+           family={Duchesnay},
+           familyi={D\bibinitperiod},
+           given={E.},
+           giveni={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{6709dd74439b987130c83f6f4daedf6c}
+      \strng{fullhash}{7a67607c66e4af944b5f16461d6d0a87}
+      \strng{bibnamehash}{6709dd74439b987130c83f6f4daedf6c}
+      \strng{authorbibnamehash}{6709dd74439b987130c83f6f4daedf6c}
+      \strng{authornamehash}{6709dd74439b987130c83f6f4daedf6c}
+      \strng{authorfullhash}{7a67607c66e4af944b5f16461d6d0a87}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Machine Learning Research}
+      \field{title}{Scikit-learn: Machine Learning in {P}ython}
+      \field{volume}{12}
+      \field{year}{2011}
+      \field{pages}{2825\bibrangedash 2830}
+      \range{pages}{6}
+    \endentry
+    \entry{tensorflow2015-whitepaper}{misc}{}
+      \name{author}{40}{}{%
+        {{hash=396d6419316ec52f4c63b2f85912b61b}{%
+           family={Martín\bibnamedelima Abadi},
+           familyi={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=f337a7c116835c22bb206d2f0d7c70e0}{%
+           family={Ashish\bibnamedelima Agarwal},
+           familyi={A\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=84ac9fcb6c15dcd79c092bc8e20586ba}{%
+           family={Paul\bibnamedelima Barham},
+           familyi={P\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+        {{hash=d8574748e3086e0b279a58cdba71763d}{%
+           family={Eugene\bibnamedelima Brevdo},
+           familyi={E\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+        {{hash=c0b56f741b5a5bddfe77f1881c3cc67a}{%
+           family={Zhifeng\bibnamedelima Chen},
+           familyi={Z\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=8b8dd2e01366c855f42e47027cf23e98}{%
+           family={Craig\bibnamedelima Citro},
+           familyi={C\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=978a7d9601bf09e03d1bb3f6cce7a0ce}{%
+           family={Greg\bibnamedelima S.\bibnamedelimi Corrado},
+           familyi={G\bibinitperiod\bibinitdelim S\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=3b500b0dfd88e6e151d29108fdcb82f0}{%
+           family={Andy\bibnamedelima Davis},
+           familyi={A\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=2fd376ea3b3a3da11704c0ee86753dcf}{%
+           family={Jeffrey\bibnamedelima Dean},
+           familyi={J\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=5b34e641dd8a00f97c6242ae0353eb90}{%
+           family={Matthieu\bibnamedelima Devin},
+           familyi={M\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=5b4490947d4e91359646ce3c93cbd2f7}{%
+           family={Sanjay\bibnamedelima Ghemawat},
+           familyi={S\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=1fdef10b94ee122ef6136197f99e3df3}{%
+           family={Ian\bibnamedelima Goodfellow},
+           familyi={I\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=166ae8a0b435eded68e39e9e2d2a1ee8}{%
+           family={Andrew\bibnamedelima Harp},
+           familyi={A\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=7e9f7006151cf312bc133568336c68c6}{%
+           family={Geoffrey\bibnamedelima Irving},
+           familyi={G\bibinitperiod\bibinitdelim I\bibinitperiod}}}%
+        {{hash=08c1890e1c33279b8c63c71fa8f19263}{%
+           family={Michael\bibnamedelima Isard},
+           familyi={M\bibinitperiod\bibinitdelim I\bibinitperiod}}}%
+        {{hash=9fce03efe6b3331a1b93ed2e7c0da9d5}{%
+           family={Jia},
+           familyi={J\bibinitperiod},
+           given={Yangqing},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=c0c0eea5379268c0c5b68732c90984b6}{%
+           family={Rafal\bibnamedelima Jozefowicz},
+           familyi={R\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=cff46cb4603a73d83b11ea7a9ded9d79}{%
+           family={Lukasz\bibnamedelima Kaiser},
+           familyi={L\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=d088e0f635523b8b5b18662331e4f44a}{%
+           family={Manjunath\bibnamedelima Kudlur},
+           familyi={M\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=1c24291ae15b979c82aa09a33790cb62}{%
+           family={Josh\bibnamedelima Levenberg},
+           familyi={J\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=796a3a98ff7545fe10f6a4c17ba016fa}{%
+           family={Dandelion\bibnamedelima Mané},
+           familyi={D\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=1ee98d232eb1fc1208a8f8ca649e970b}{%
+           family={Rajat\bibnamedelima Monga},
+           familyi={R\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=b2a15ec3d90955ece50ea26d31100b9a}{%
+           family={Sherry\bibnamedelima Moore},
+           familyi={S\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=1494c573fadad736c58cf1119ac59239}{%
+           family={Derek\bibnamedelima Murray},
+           familyi={D\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=ecf58eb1684af6cba2c1f126405eedab}{%
+           family={Chris\bibnamedelima Olah},
+           familyi={C\bibinitperiod\bibinitdelim O\bibinitperiod}}}%
+        {{hash=9f43befd94cd09a9aaa7ea8489405a83}{%
+           family={Mike\bibnamedelima Schuster},
+           familyi={M\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=4712800a228b1179529b9f6e0d1b1838}{%
+           family={Jonathon\bibnamedelima Shlens},
+           familyi={J\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=41ad6ff6c026d5a3730269072b31caf1}{%
+           family={Benoit\bibnamedelima Steiner},
+           familyi={B\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=b02f7871db6fc5524cec4ce38e104410}{%
+           family={Ilya\bibnamedelima Sutskever},
+           familyi={I\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=63288446e47b1d383f522ede84aa6fcc}{%
+           family={Kunal\bibnamedelima Talwar},
+           familyi={K\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+        {{hash=1dec75595b55bf77971f6a932d146b81}{%
+           family={Paul\bibnamedelima Tucker},
+           familyi={P\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+        {{hash=b6680dbb0176cb9bd87a3b26fa6f5cfb}{%
+           family={Vincent\bibnamedelima Vanhoucke},
+           familyi={V\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+        {{hash=e030c9d199c66657e26138be29814d81}{%
+           family={Vijay\bibnamedelima Vasudevan},
+           familyi={V\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+        {{hash=04426b798803cfaf3e8aa9280a5d0a58}{%
+           family={Fernanda\bibnamedelima Viégas},
+           familyi={F\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+        {{hash=fa7242e11c7d955de2ac1be94ca29073}{%
+           family={Oriol\bibnamedelima Vinyals},
+           familyi={O\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+        {{hash=8c9ee8f70a3c3d97f85efd01c4e9cbe6}{%
+           family={Pete\bibnamedelima Warden},
+           familyi={P\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+        {{hash=8e4243c228c72a5e5279e31252887b32}{%
+           family={Martin\bibnamedelima Wattenberg},
+           familyi={M\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+        {{hash=c6a6eb2597f23589fc9141bdda275996}{%
+           family={Martin\bibnamedelima Wicke},
+           familyi={M\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+        {{hash=3ea39e6dc6ef47029ae996c7e63f1a48}{%
+           family={Yuan\bibnamedelima Yu},
+           familyi={Y\bibinitperiod\bibinitdelim Y\bibinitperiod}}}%
+        {{hash=b69feb3a3d59a312b20dbef0b1d2d6de}{%
+           family={Xiaoqiang\bibnamedelima Zheng},
+           familyi={X\bibinitperiod\bibinitdelim Z\bibinitperiod}}}%
+      }
+      \strng{namehash}{f824adc1297eb626e3c7cb9b31442eef}
+      \strng{fullhash}{9b332dc9b33a2f6316d71d525269bd0f}
+      \strng{bibnamehash}{f824adc1297eb626e3c7cb9b31442eef}
+      \strng{authorbibnamehash}{f824adc1297eb626e3c7cb9b31442eef}
+      \strng{authornamehash}{f824adc1297eb626e3c7cb9b31442eef}
+      \strng{authorfullhash}{9b332dc9b33a2f6316d71d525269bd0f}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Software available from tensorflow.org}
+      \field{title}{{TensorFlow}: Large-Scale Machine Learning on Heterogeneous Systems}
+      \field{year}{2015}
+      \verb{urlraw}
+      \verb https://www.tensorflow.org/
+      \endverb
+      \verb{url}
+      \verb https://www.tensorflow.org/
+      \endverb
+    \endentry
+    \entry{cohenskappa}{article}{}
+      \name{author}{1}{}{%
+        {{hash=eaad07ee1c6ef93a9308150f12c3c2eb}{%
+           family={Cohen},
+           familyi={C\bibinitperiod},
+           given={Jacob},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{eaad07ee1c6ef93a9308150f12c3c2eb}
+      \strng{fullhash}{eaad07ee1c6ef93a9308150f12c3c2eb}
+      \strng{bibnamehash}{eaad07ee1c6ef93a9308150f12c3c2eb}
+      \strng{authorbibnamehash}{eaad07ee1c6ef93a9308150f12c3c2eb}
+      \strng{authornamehash}{eaad07ee1c6ef93a9308150f12c3c2eb}
+      \strng{authorfullhash}{eaad07ee1c6ef93a9308150f12c3c2eb}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Educational and Psychological Measurement}
+      \field{number}{1}
+      \field{title}{A Coefficient of Agreement for Nominal Scales}
+      \field{volume}{20}
+      \field{year}{1960}
+      \field{pages}{37\bibrangedash 46}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1177/001316446002000104
+      \endverb
+      \verb{eprint}
+      \verb https://doi.org/10.1177/001316446002000104
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1177/001316446002000104
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1177/001316446002000104
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

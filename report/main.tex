@@ -122,15 +122,25 @@ The organization of the report is as follows:
 \begin{itemize}
     \item The problem and the proposed solutions to it are briefly introduced in this section.
     \item The theory of dimensional and categorical emotions are mentioned in Section \ref{sec:theory}.
-    \item The methods, datasets and neural network architectures used in the implementation of the speech emotion recognition can be seen in Section \ref{sec:implementation}.
-    \item Section \ref{sec:results} is left for the definition of the evaluation metrics utilized in the study, the reproduced results, evaluation of the models with other datasets and the discussion on the results.  
+    \item The methods, datasets and neural network architectures used in the implementation of the original paper along with modifications introduced in the speech emotion recognition tasks can be seen in Section \ref{sec:implementation}.
+    \item Section \ref{sec:results} is left for the presentation of the results from conducted experiments along with the reproduced results, and a discussion on them with a focus on comparison of the models.   
 \end{itemize}
 
-\pagebreak
+
 
 \section{Theory} \label{sec:theory}
 
-The idea that emotion categories can be separated based on some emotional dimensions dates back to 1979. Russel argued in \cite{russell1979affective} that categorical emotions, namely sadness, anger, joy, etc., can be classified by the values they represent in three dimensions: Valence, Arousal and Dominance.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{chart.png}
+    \caption{Traditional Speech Emotion Recognition Scheme \cite{ser_deep_dl}}\label{fig:traditional}
+\end{figure}
+
+The traditional algorithm for speech emotion recognition is demonstrated in Figure \ref{fig:traditional}. Unlike these scheme, authors used to convert this categorical classification problem to a regression problem by using the dimensional emotion concept. In other words, they first predicted the magnitude of an utterance in each dimension. The remaining classification task afterwards is just deciding on which category an utterance belongs to in the dimensional emotion feature space. 
+
+\pagebreak
+
+The idea that emotion categories can be classified based on some emotional dimensions dates back to 1979. Russel argued in \cite{russell1979affective} that categorical emotions, namely sadness, anger, joy, etc., can be classified by the values they represent in three dimensions: Valence, Arousal and Dominance.
 
 \begin{figure}[h]
 \centering
@@ -153,7 +163,7 @@ The idea that emotion categories can be separated based on some emotional dimens
 \caption{\label{tab:vadtable}VAD Dimensions of 6 basic emotions \cite{bualan2020emotion}.}
 \end{table}
 
-The categorical emotions of a given utterance can be decided based on its dimensional features' location in the Valence-Arousal-Dominance space. The authors of the study show that by using this idea, the Multilayer Perceptrons networks achieve more success, although being obsolete and computationally less costly, compared to more modern computational units such as LSTMs and CNNs.
+The categorical emotions of a given utterance can be decided based on its dimensional features' location in the Valence-Arousal-Dominance space. The authors of the study show that by using this idea, the Multilayer Perceptrons networks achieve more success, although being obsolete and computationally less costly, compared to more modern computational units such as LSTMs and CNNs, provided that the same number of architecture units are used and resultant number of parameters are not significantly different.
 
 \pagebreak
 
@@ -260,18 +270,22 @@ The total loss with respect to this loss is defined to be the sum of loss of ind
 
 However, the authors state that they could not find a way to implement this loss function to optimize MLP models. Hence, they used MSE Loss instead in the training process, and CCC Loss again in the evaluation. 
 
+\begin{equation}
+    MSE = \frac{1}{N}\sum_{i=1}^N (y_i -{\hat{y}}_i)^2
+\end{equation}
+
 \pagebreak
 
 \subsection{Modifications}
 
-The software provided in the \href{https://github.com/bagustris/deep_mlp_ser}{repository \faExternalLink*} \footnote{https://github.com/bagustris/deep\_mlp\_ser} is copied via \texttt{git clone} and some additional changes made on the repository. The modified version is shared \href{https://github.com/kutay-ugurlu/583-Project}{here \faExternalLink*}\footnote{ https://github.com/kutay-ugurlu/583-Project}.
+The software provided in the \href{https://github.com/bagustris/deep_mlp_ser}{repository \faExternalLink*} \footnote{https://github.com/bagustris/deep\_mlp\_ser} is copied via \texttt{git clone} and some additional changes made on the repository. The modified version is shared \href{https://github.com/kutay-ugurlu/583-Project}{here \faExternalLink*} \footnote{ https://github.com/kutay-ugurlu/583-Project}.
 
 \subsubsection{Data}\label{subsec:MELDdata}
 
 \paragraph{Datasets}
 
 The authors of the study made use of the most of the databases whose utterances are labelled by multiple annotators in the Valence-Arousal-Dominance dimension. 
-Although there are many available datasets on Speech Emotion Recognition, only a few of them are labelled in the same manner. However, these datasets were not available for open access. The remaining available datasets are either labelled categorically, \textit{i.e.} sad, joy, anger etc. or labelled only in 2 dimension: Valence and Arousal. Since the latter option requires one to re-train the model and does not provide one with the chance of evaluating the pretrained model with the new test data, categorical dataset, MELD \cite{atmaja2020deep}, was used for the evaluation. The dataset consists of utterances in mp4 format from the TV series ''Friends'' and the categorical emotions regarding these utterances. The number of labeled utterance is 2610. However, the number of utterances labelled as ''neutral'' in the emotions, which corresponds to the origin of the Valence-Arousal-Dominance space, was exceedingly higher than the others, and it was causing problems in both class-imbalance sense and in the learning part of the regression networks, hence those samples were dropped from the dataset.
+Although there are many available datasets on Speech Emotion Recognition, only a few of them are labelled in the same manner. However, these datasets were not available for open access. The remaining available datasets are either labelled categorically, \textit{i.e.} sad, joy, anger etc. or labelled only in 2 dimension: Valence and Arousal. Since the latter option requires one to re-train the model, does not provide one with the chance of evaluating the pretrained model with the new test data and results in an unfair evaluation of the results since the dimension of the problem is changed, categorical dataset, MELD \cite{atmaja2020deep}, was used for the evaluation. The dataset consists of utterances in mp4 format from the TV series ''Friends'' and the categorical emotions regarding these utterances. The number of labeled utterance is 2610. However, the number of utterances labelled as ''neutral'' in the emotions, which corresponds to the origin of the Valence-Arousal-Dominance space, was exceedingly higher than the others, and it was causing problems in both class-imbalance sense and in the learning part of the regression networks, hence those samples were dropped from the dataset.
 
 \paragraph{Data Preprocessing}
 
@@ -281,7 +295,7 @@ The whole data formation process can be seen in Figure \ref{fig:dataformation}.
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.7\textwidth]{Presentation.png}
+\includegraphics[width=0.6\textwidth]{Presentation.png}
 \caption{The data formation steps used to augment data from MELD dataset}\label{fig:dataformation}
 \end{figure}
 
@@ -291,7 +305,7 @@ The data processing steps shown above visually in Figure \ref{fig:dataformation}
 
 \subsubsection{Models}
 
-The pre-trained models are evaluated using the new test data. Furthermore, to make better conclusions on the models' capability to fit the data, the data is split to train, test and validation sets and the model is evaluated after being retrained. The architectures of the model were not changed. The only change made was the number of training and patience epoch for early stopping. The comparison was only made for speaker independent case due to the 
+The pre-trained models are evaluated using the new test data. Furthermore, to make better conclusions on the models' capability to fit the data, the data is split to train, test and validation sets and the model is evaluated after being retrained. The architectures of the model were not changed. The only change made was the number of training and patience epoch for early stopping. The comparison was only made for speaker independent case due to the requirement of splitting the newly introduced test data in a speaker-wise manner and train the models using mixed datasets in the speaker dependent case and lack of available continuous data from the same speaker.
 
 \section{Results and Discussion} \label{sec:results}
 \begin{table}[h]
@@ -300,26 +314,27 @@ The pre-trained models are evaluated using the new test data. Furthermore, to ma
         \toprule
         {} &  \makecell{Original\\ Mean CCC} &  \makecell{Tested\\ Valence CCC} &  \makecell{Tested\\ Arousal CCC} &  \makecell{Tested\\ Dominance CCC} &  \makecell{Trained \\Mean CCC} \\
         \midrule
-        CNN IEMOCAP  &              0.330 &               0.022 &               0.043 &                 0.043 &             0.130 \\ \midrule
-        CNN IMPROV   &              0.372 &              -0.000 &              -0.000 &                -0.000 &             0.103 \\\midrule
-        CNN MIXED    &              0.204 &               0.032 &               0.046 &                 0.046 &             0.119 \\\midrule
-        LSTM IEMOCAP &              0.359 &               0.013 &              -0.000 &                -0.000 &             0.118 \\\midrule
-        LSTM IMPROV  &              0.338 &              -0.001 &              -0.003 &                -0.003 &             0.113 \\\midrule
-        LSTM MIXED   &              0.215 &              -0.008 &              -0.002 &                -0.002 &             0.118 \\\midrule
-        MLP IEMOCAP  &              0.434 &               0.042 &               0.020 &                 0.020 &             0.005 \\\midrule
+        CNN TS1  &              0.330 &               0.022 &               0.043 &                 0.043 &             0.130 \\ \midrule
+        CNN TS2   &              0.372 &              -0.000 &              -0.000 &                -0.000 &             0.103 \\\midrule
+        CNN M    &              0.204 &               0.032 &               0.046 &                 0.046 &             0.119 \\\midrule
+        LSTM TS1 &              0.359 &               0.013 &              -0.000 &                -0.000 &             0.118 \\\midrule
+        LSTM TS2  &              0.338 &              -0.001 &              -0.003 &                -0.003 &             0.113 \\\midrule
+        LSTM M   &              0.215 &              -0.008 &              -0.002 &                -0.002 &             0.118 \\\midrule
+        MLP TS1  &              0.434 &               0.042 &               0.020 &                 0.020 &             0.005 \\\midrule
         % \makecell{MLP IEMOCAP \\ optimized}  &              0.434 &               0.042 &               0.020 &                 0.020 &             0.005 \\\midrule
-        MLP IMPROV   &              0.419 &               0.035 &              -0.058 &                -0.058 &             0.005 \\\midrule
+        MLP TS2   &              0.419 &               0.035 &              -0.058 &                -0.058 &             0.005 \\\midrule
         % \makecell{MLP IMPROV \\ optimized}   &              0.419 &               0.035 &              -0.058 &                -0.058 &             0.005 \\\midrule
-        MLP MIXED    &              0.294 &               0.104 &               0.050 &                 0.050 &             0.005 \\
+        MLP M    &              0.294 &               0.104 &               0.050 &                 0.050 &             0.005 \\
         \bottomrule
         \end{tabular}
         
-    \caption{CCC results of the conducted experiments}
+    \caption{CCC results of the conducted experiments, TS1:IEMOCAP, TS2:IMPROV, M:MIXED}
     \label{tab:CCCloss}
 \end{table}
 
 \indent The CCC values obtained from the experiments are summarized in Table \ref{tab:CCCloss}. The \textbf{Original Mean CCC} columns represent the reproduced mean of three dimensional CCC results in the original paper \cite{atmaja2020deep}. Following three columns represent the values of the three dimensional evaluation results with the new test data in \ref{subsec:MELDdata}. The last column represent the values obtained from the experiments where the new test data is used both in training and evaluation.
-
+\\
+\\
 One may notice the performance difference between the dataset by comparing the numbers in the 1st column with the following three ones. These results imply that the models trained with the datasets used in the study do not generalize to the other test data. The mean of the results of the \textbf{Trained Mean CCC} case is used to replace the different results with k-fold cross validation results. 
 
 The  \textbf{Trained Mean CCC} results slightly varies among the experiments. The results are obtained via 3 different train-test splits and the mean of them can be considered as the 3-fold cross validation CCC. \\
@@ -340,7 +355,7 @@ The  \textbf{Trained Mean CCC} results slightly varies among the experiments. Th
 \pagebreak 
 
 \subsection{Number of samples in the training set}
-The difference between the training and evaluation within the same datasets, \textit{i.e.}, \textbf{Original Mean CCC vs Trained Mean CCC}, can be explained by the number of utterances utilized in the datasets. There are 9-fold difference in the size of the datasets between the cases, and within-dataset performances rely highly on the data that is provided yo the network. The size difference directly affects to which extent the model can fit the conditional probability distribution.
+The difference between the training and evaluation within the same datasets, \textit{i.e.}, \textbf{Original Mean CCC vs Trained Mean CCC}, can be explained by the number of utterances utilized in the datasets. There are 9-fold difference in the size of the datasets between the cases, and within-dataset performances rely highly on the data that is provided to the network. The size difference directly affects to which extent the model can fit the conditional probability distribution.
 
 \subsection{Number of training data distributions}
 One noticeable result is that mixing corpora, \textit{i.e.} forcing models to learn 2 different data distributions, resulted in poorer performance in the original study. This is expected, since the same model is being fitted to the two distributions, hence the prediction performance gets poorer in the test data from the same distributions. However, when we inspect the Multilayer perceptrons models in the second case, we observe a significantly increased generalization capability by three times. This may be due to the fact that this model has been trained on multiple different samples from multiple distributions, performing better in a never-seen sample. The same situation is also applicable for CNNs for the valence dimension of the regression.  
