@@ -37,6 +37,8 @@
 \usepackage{booktabs}
 \usepackage{multicol}
 \usepackage{titlesec}
+\usepackage{fontawesome5}
+\usepackage{makecell}
 
 \setcounter{secnumdepth}{4}
 \setcounter{tocdepth}{4}
@@ -148,6 +150,7 @@ The idea that emotion categories can be separated based on some emotional dimens
 \caption{\label{tab:vadtable}VAD Dimensions of 6 basic emotions \cite{bualan2020emotion}.}
 \end{table}
 
+The categorical emotions of a given utterance can be decided based on its dimensional features' location in the Valence-Arousal-Dominance space. The authors of the study show that by using this idea, the Multilayer Perceptrons networks achieve more success, although being obsolete and computationally less costly, compared to more modern computational units such as LSTMs and CNNs.
 
 \pagebreak
 
@@ -254,7 +257,9 @@ The total loss with respect to this loss is defined to be the sum of loss of ind
 
 \pagebreak
 
-\subsection{Changes made}
+\subsection{Modifications}
+
+The software provided in the \href{https://github.com/bagustris/deep_mlp_ser}{repository \faExternalLink*} is copied via \texttt{git clone} and some additional changes made on the repository. The modified version is shared \href{https://github.com/kutay-ugurlu/583-Project}{here \faExternalLink*}.
 
 \subsubsection{Data}
 
@@ -275,6 +280,8 @@ The whole data formation process can be seen in Figure \ref{fig:dataformation}.
 \caption{The data formation steps used to augment data from MELD dataset}\label{fig:dataformation}
 \end{figure}
 
+\pagebreak
+
 \subsubsection{Models}
 
 The pre-trained models are evaluated using the new test data. Furthermore, to make better conclusions on the models' capability to fit the data, the data is split to train, test and validation sets and the model is evaluated after being retrained. The architectures of the model were not changed. The only change made was the number of training and patience epoch for early stopping. 
@@ -282,6 +289,31 @@ The pre-trained models are evaluated using the new test data. Furthermore, to ma
 \pagebreak
 
 \section{Results and Discussion} \label{sec:results}
+\begin{table}[h]
+    \centering
+    \begin{tabular}{lccccc}
+        \toprule
+        {} &  \makecell{Original \\ Mean CCC} &  \makecell{Tested \\ Valence CCC} &  \makecell{Tested \\ Arousal CCC} &  \makecell{Tested \\ Dominance CCC} &  \makecell{Trained \\  Mean CCC} \\
+        \midrule
+        CNN IEMOCAP  &               0.33 &                0.02 &                0.04 &                  0.04 &              0.13 \\
+        CNN IMPROV   &               0.37 &               -0.00 &               -0.00 &                 -0.00 &              0.10 \\
+        CNN MIXED    &               0.20 &                0.03 &                0.05 &                  0.05 &              0.12 \\
+        LSTM IEMOCAP &               0.36 &                0.01 &               -0.00 &                 -0.00 &              0.12 \\
+        LSTM IMPROV  &               0.34 &               -0.00 &               -0.00 &                 -0.00 &              0.11 \\
+        LSTM MIXED   &               0.22 &               -0.01 &               -0.00 &                 -0.00 &              0.12 \\
+        MLP IEMOCAP  &               0.43 &                0.04 &                0.02 &                  0.02 &              0.01 \\
+        MLP IEMOCAP  &               0.43 &                0.04 &                0.02 &                  0.02 &              0.01 \\
+        MLP IMPROV   &               0.42 &                0.04 &               -0.06 &                 -0.06 &              0.01 \\
+        MLP IMPROV   &               0.42 &                0.04 &               -0.06 &                 -0.06 &              0.01 \\
+        MLP MIXED    &               0.29 &                0.10 &                0.05 &                  0.05 &              0.01 \\
+        \bottomrule
+        \end{tabular}
+    \caption{CCC results of the conducted experiments}
+    \label{tab:CCCloss}
+\end{table}
+
+    
+    
 
 \pagebreak
 

@@ -87,6 +87,10 @@ print(ccc)
 
 
 
+
+
+
+
 data = {}
 
 data["First Eval"] = np.mean(ccc)
@@ -137,7 +141,7 @@ data["Second Eval"] = np.mean(ccc)
 
 nn = MLPRegressor(
     hidden_layer_sizes=(256, 128, 64, 32, 16),  activation='logistic', solver='adam', alpha=0.001, batch_size='auto',
-    learning_rate='constant', learning_rate_init=0.001, power_t=0.5, max_iter=180, shuffle=True,
+    learning_rate='constant', learning_rate_init=0.001, power_t=0.5, max_iter=250, shuffle=True,
     random_state=9, verbose=0, warm_start=True, momentum=0.9, nesterovs_momentum=True,
     early_stopping=True, validation_fraction=0.2, beta_1=0.9, beta_2=0.999, epsilon=1e-08,
     n_iter_no_change=100)
