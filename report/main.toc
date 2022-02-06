@@ -40,3 +40,7 @@
 \contentsline {subsection}{\numberline {4.3}Labelling and Human Bias}{9}{subsection.4.3}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {4.4}Architecture}{9}{subsection.4.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5}Conclusion}{10}{section.5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{References}{11}{section.5}%

@@ -628,6 +628,35 @@
       \verb https://www.tensorflow.org/
       \endverb
     \endentry
+    \entry{tomar2006converting}{article}{}
+      \name{author}{1}{}{%
+        {{hash=0d8c90b2140bac62e0b5bb2b6e69e887}{%
+           family={Tomar},
+           familyi={T\bibinitperiod},
+           given={Suramya},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Belltown Media}%
+      }
+      \strng{namehash}{0d8c90b2140bac62e0b5bb2b6e69e887}
+      \strng{fullhash}{0d8c90b2140bac62e0b5bb2b6e69e887}
+      \strng{bibnamehash}{0d8c90b2140bac62e0b5bb2b6e69e887}
+      \strng{authorbibnamehash}{0d8c90b2140bac62e0b5bb2b6e69e887}
+      \strng{authornamehash}{0d8c90b2140bac62e0b5bb2b6e69e887}
+      \strng{authorfullhash}{0d8c90b2140bac62e0b5bb2b6e69e887}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Linux Journal}
+      \field{number}{146}
+      \field{title}{Converting video formats with FFmpeg}
+      \field{volume}{2006}
+      \field{year}{2006}
+      \field{pages}{10}
+      \range{pages}{1}
+    \endentry
     \entry{cohenskappa}{article}{}
       \name{author}{1}{}{%
         {{hash=eaad07ee1c6ef93a9308150f12c3c2eb}{%

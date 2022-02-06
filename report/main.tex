@@ -116,8 +116,9 @@ Inspection of \textit{Deep Multilayer Perceptrons for Dimensional Speech Emotion
 
 Speech emotion recognition is the task of extracting the emotion category from either text or audio data. It has already some applications in security, medicine, entertainment and education \cite{cen2016real}. 
 
-This project report investigates the idea that Atmaja \textit{et al.}stated in \textit{Deep Multilayer Perceptrons for Dimensional Speech Emotion Recognition}~\cite{atmaja2020deep}. The authors of the study discusses the need of utilizing modern computation units, such as Long Short Term Memory(LSTMs) and Convolutional Neural Networks(CNNs), in the neural networks for the task of dimensional speech emotion recognition. 
-
+This project report investigates the idea that Atmaja \textit{et al.}stated in \textit{Deep Multilayer Perceptrons for Dimensional Speech Emotion Recognition}~\cite{atmaja2020deep}. The authors of the study discusses the need of utilizing modern computation units, such as Long Short Term Memory(LSTMs) and Convolutional Neural Networks(CNNs), in the neural networks for the task of dimensional speech emotion recognition. The authors state in the Conclusion section of their paper that the future research should be directed to evaluate the cross corpus evaluations. In this project, the proposed method is evaluated on both other corpora and between-corpora. 
+\\
+\\
 The organization of the report is as follows:
 \begin{itemize}
     \item The problem and the proposed solutions to it are briefly introduced in this section.
@@ -187,7 +188,7 @@ There are mainly two datasets utilized in the paper.
 The shared data in \cite{atmaja2020deep} are already preprocessed and the scripts and tools the authors utilized was not explicitly shared. However, the types of features Atmaja \textit{et al.} used is shared in the paper.  
 The audio in the dataset are used to extract 47 features per utterance.
 These features are obtained in a 2-level process. First, the Low Level Descriptors defined in \cite{eyben2010opensmile} are calculated by the \texttt{opensmile} software. These Low Level Descriptors are as follows: 
-\begin{multicols}{3}
+\begin{multicols}{2}
 \begin{itemize}
     \item Intensity
     \item Alpha ratio
@@ -213,27 +214,24 @@ These features are obtained in a 2-level process. First, the Low Level Descripto
 \end{multicols}
 
 Then, 47 features, High Statistical Functions of these 23 features are calculated in two sets by utilizing the mean and standard deviation. In addition, authors defined an extra feature: Silence. The silence is defined as the ratio of the silent frames per utterance. 
-\begin{equation}
-    S = \frac{N_s}{N_t}
-\end{equation}
+
+\begin{align}
+    S &= \frac{N_s}{N_t} & Threshold &= 0.3 \times X_{RMS}
+\end{align}
 where $N_s$ is the number of silent frames and $N_t$ is the number of total frames.
 The frames are labelled as silent by being compared to a threshold. 
-\begin{equation}
-    Threshold = 0.3 \times X_{RMS}
-\end{equation} 
-and 
-\begin{equation}
-    X_{RMS} = \sqrt{\frac{1}{n}\sum_{i=1}^n{x[i]}^2}
-\end{equation} 
+\begin{align}
+    Threshold &= 0.3 \times X_{RMS} & X_{RMS} &= \sqrt{\frac{1}{n}\sum_{i=1}^n{x[i]}^2}
+\end{align}
 where the factor 0.3 is determined empirically.
-
 \paragraph{Scaling}
 Both the data and the labels that were originally labelled in the range $[-5,5]$ are scaled to the range [-1,1] in ReLU activated CNNs and LSTM networks. 
 
 \subsubsection{Models}
 
 The benchmark models which authors use to compare the model performance are composed of CNN and LSTM units. The authors use the same number of units and layers in the model. In Figure \ref{fig:models}, it can be seen that the models have approximately the same number of trainable parameters. 
-
+\\
+\\
 The multiplayer perceptron models are implemented with scikit-learn's MLP Regressor \cite{scikit-learn} and the remaining CNN and LSTM models are implemented with Tensorflow \cite{tensorflow2015-whitepaper}.
 
 \begin{figure}[h]
@@ -289,7 +287,7 @@ Although there are many available datasets on Speech Emotion Recognition, only a
 
 \paragraph{Data Preprocessing}
 
-To augment the dimensional, \textit{i.e.} numerical, labels from the categorical labels. This is conducted by mapping the categorical labels to points in the Valence-Arousal-Dominance space via the mapping given in Table \ref{tab:vadtable} first, and perturbing the points with normally distributed noise with standard deviation 0.01, to reflect the effect of multiple annotators. To get the time series data in WAV format in the same datarate of 44.1 kHz from MP4 format, \texttt{FFMPEG} is utilized.   
+To augment the dimensional, \textit{i.e.} numerical, labels from the categorical labels. This is conducted by mapping the categorical labels to points in the Valence-Arousal-Dominance space via the mapping given in Table \ref{tab:vadtable} first, and perturbing the points with normally distributed noise with standard deviation 0.01, to reflect the effect of multiple annotators. To get the time series data in WAV format in the same datarate of 44.1 kHz from MP4 format, \texttt{FFMPEG} \cite{tomar2006converting} is utilized.   
 
 The whole data formation process can be seen in Figure \ref{fig:dataformation}.
 
@@ -327,8 +325,9 @@ The pre-trained models are evaluated using the new test data. Furthermore, to ma
         MLP M    &              0.294 &               0.104 &               0.050 &                 0.050 &             0.005 \\
         \bottomrule
         \end{tabular}
-        
-    \caption{CCC results of the conducted experiments, TS1:IEMOCAP, TS2:IMPROV, M:MIXED}
+    \captionsetup{justification=centering, singlelinecheck=off} 
+    \caption{CCC results of the conducted experiments }
+    \vspace*{5pt} TS1:IEMOCAP, TS2:IMPROV, M:MIXED
     \label{tab:CCCloss}
 \end{table}
 
@@ -336,9 +335,9 @@ The pre-trained models are evaluated using the new test data. Furthermore, to ma
 \\
 \\
 One may notice the performance difference between the dataset by comparing the numbers in the 1st column with the following three ones. These results imply that the models trained with the datasets used in the study do not generalize to the other test data. The mean of the results of the \textbf{Trained Mean CCC} case is used to replace the different results with k-fold cross validation results. 
-
+\\
+\\
 The  \textbf{Trained Mean CCC} results slightly varies among the experiments. The results are obtained via 3 different train-test splits and the mean of them can be considered as the 3-fold cross validation CCC. \\
-
 \begin{minipage}{0.3\textwidth}
     \centering
     $CNN_{avg} = 0.117$            
@@ -367,6 +366,15 @@ The labelling process of the data used in the study was conducted by multiple an
 \subsection{Architecture}
 Inspecting the \textbf{Trained Mean CCC} results, one can conclude that the modern computational units such as LSTM and convolutional layers outperformed the classical MLP. Although, the extracted features mentioned in Section \ref{subsec:datapreprocess} do not have a straightforward time-series relation like the one observed in raw audio data, CNNs and LSTMs have an advantage over capturing the mutual (or sequential), relationship that is not easily comprehensible by humans. On the other hand, Multilayer Perceptron models regards these features as if they are completely independent and there is not a spatial relationship between the consecutive ones. This may be the reason why they are outperformed by the more modern architectures. The converse situation that is observed in the original paper seems to be a specific result of hyperparameter optimization along with the used datasets.
 
+\section{Conclusion}
+
+In this project, the study \textit{Deep Multilayer Perceptrons for Dimensional Speech Emotion Recognition} is inspected and the proposed method is evaluated with one other corpus, both by only evaluation and both training and evaluation.
+\\
+\\
+It is observed that the main conclusion from the original study is not completely applicable to other corpora and the widely accepted methods and architectures in the recent literature worked better on the newly introduced test data. However, the hyperparameters regarding the architectures of the models are kept constant throughout all the experiments. It can be further investigated that if it is possible to achieve the same counter-intuitive, in terms of acceptance in the literature, conclusion for a different set of hyperparameters for another corpora. 
+\\
+\\
+The difference between the results of the original paper and evaluation of the models on the other corpora reveals the requirement for any area of the pattern recognition field to have a benchmark dataset on which researchers show their proposed models' success and the others can agree on, like in other popular research areas such as ImageNet for computer vision tasks. 
 % Training samples numbers
 % One dist vs two dist training difficulty
 % Cohen's Kappa
@@ -374,6 +382,6 @@ Inspecting the \textbf{Trained Mean CCC} results, one can conclude that the mode
 
 \pagebreak
 
-\printbibliography
+\printbibliography[heading=bibintoc]
 
 \end{document}

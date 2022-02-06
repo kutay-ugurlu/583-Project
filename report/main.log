@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 22.1) (preloaded format=xelatex 2022.2.6)  6 FEB 2022 20:48
+This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 22.1) (preloaded format=xelatex 2022.2.6)  6 FEB 2022 22:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1095,52 +1095,69 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \openout5 = `main.toc'.
 
  [2]
+Underfull \hbox (badness 10000) in paragraph at lines 119--123
+
+ []
+
 File: chart.png Graphic file (type bmp)
 <chart.png>
- [3]
+[3]
 File: dimensions_pic.png Graphic file (type bmp)
 <dimensions_pic.png>
  [4]
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
-89.
-
-(C:\Users\Kutay\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
+90.
+ (C:\Users\Kutay\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) [5]
+)
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 232--236
+
+ []
+
 File: modelsparams.png Graphic file (type bmp)
 <modelsparams.png>
 File: modelparamsmlp.png Graphic file (type bmp)
 <modelparamsmlp.png>
-
 [6]
 File: Presentation.png Graphic file (type bmp)
 <Presentation.png>
  [7]
-Underfull \hbox (badness 10000) in paragraph at lines 335--339
+Underfull \hbox (badness 10000) in paragraph at lines 334--353
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 340--341
+Underfull \hbox (badness 10000) in paragraph at lines 334--353
 
  []
 
-[8] [9]
+[8]
+Underfull \hbox (badness 10000) in paragraph at lines 371--382
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 371--382
+
+ []
+
+[9] [10]
 Missing character: There is no ă in font ec-lmr10!
-[10] (main.aux)
+[11] (main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 7307BB5E7E9A461F157CF08470D3588F;2741.
+(rerunfilecheck)             Checksum: CDF1A02D5263D7C734086275A3A12433;2929.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 25784 strings out of 410978
- 432481 string characters out of 2824014
- 1204558 words of memory out of 3000000
- 46202 multiletter control sequences out of 15000+600000
+ 25786 strings out of 410978
+ 432585 string characters out of 2824014
+ 1205593 words of memory out of 3000000
+ 46204 multiletter control sequences out of 15000+600000
  522991 words of font info for 81 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 68i,15n,77p,1496b,4790s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 68i,15n,77p,1496b,4800s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (10 pages).
+Output written on main.pdf (11 pages).
