@@ -4,7 +4,7 @@
 
 ## Initial Setup
 #### The data is transferred to the Google Drive due to Git LFS restrictions.
-#### One should download the folders in the One Drive URL below and "replace" with the corresponding folders in the GitHub repository before running the scripts to get meaningful results. 
+#### One should download the folders in the One Drive URL below and __REPLACE__ with the corresponding folders in the GitHub repository before running the scripts to get meaningful results. 
 [MELD Dataset](https://1028f8d26f624cd18d39-my.sharepoint.com/:f:/g/personal/kutay_ugurlu_metu_edu_tr/EkSnJAtA9fBCntQzBIEHvCoBhmel9vTzjVsLdz8I6v1Vcg?e=Mgdq43)
 ##### The conda environment should be created by using the command:
 ```
