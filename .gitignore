@@ -1,5 +1,8 @@
 data/MELDRaw/*
-!data/MELDRaw/test_data/
+!data/MELDRaw/*.npy
+!data/MELDRaw/*.ipynb
+
+!data/MELDRaw/test_data/*
 data/MELDRaw/test_data/*
 !data/MELDRaw/test_data/output_repeated_splits_test
 data/MELDRaw/test_data/output_repeated_splits_test/*
