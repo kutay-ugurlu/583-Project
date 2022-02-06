@@ -6,6 +6,10 @@
 #             feature is std+mean+silence
 # 2020-01-30: modified for eusipco 2020
 # %%
+import os
+import json
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler, MinMaxScaler, RobustScaler
 import numpy as np
 import pickle
 import pandas as pd
@@ -137,6 +141,7 @@ def api_model(alpha, beta, gamma):
                   optimizer='adam', metrics=[ccc])
     return model
 
+
 # def main(alpha, beta, gamma):
 model = api_model(0.1, 0.5, 0.4)
 model.summary()
@@ -152,21 +157,16 @@ metrik = model.evaluate(feat[len(feat_train):],
 print(metrik)
 
 
-
-
 data = {}
 
 data["First Eval"] = np.mean(metrik[-3:])
 
 
-import numpy as np 
-from sklearn.preprocessing import StandardScaler, MinMaxScaler, RobustScaler
-from sklearn.model_selection import train_test_split
-
-val_data_2 = np.load("C:/Users/Kutay/Desktop/deep_mlp_ser/data/MELDRaw/MELD_test_data_no_neutral.npy")
+val_data_2 = np.load("../data/MELDRaw/MELD_test_data_no_neutral.npy")
 val_data_2 = val_data_2.reshape(val_data_2.shape[0], val_data_2.shape[1], 1)
-val_label_2 = np.load("C:/Users/Kutay/Desktop/deep_mlp_ser/data/MELDRaw/MELD_labels_no_neutral.npy")
-val_label_2 += 0 *  np.random.randn(val_label_2.shape[0],val_label_2.shape[1])
+val_label_2 = np.load(
+    "../data/MELDRaw/MELD_labels_no_neutral.npy")
+val_label_2 += 0 * np.random.randn(val_label_2.shape[0], val_label_2.shape[1])
 
 scaled_feature = True
 
@@ -195,23 +195,24 @@ if scaled_vad:
 else:
     val_label_2 = val_label_2
 
-val_data_2 = np.transpose(val_data_2,axes=[0,2,1])
+val_data_2 = np.transpose(val_data_2, axes=[0, 2, 1])
 
 val_list = np.transpose(val_label_2).tolist()
 
 
-## Test with first model
-metrik_val = model.evaluate(val_data_2,val_list)
+# Test with first model
+metrik_val = model.evaluate(val_data_2, val_list)
 print(metrik_val)
 print("Second Eval CCC ave= ", np.mean(metrik_val[-3:]))
 data["Second Eval"] = np.mean(metrik_val[-3:])
 data["Second Eval whole"] = metrik_val[-3:]
 
 
-## Train Test Split 
+# Train Test Split
 print(val_data_2.shape, val_label_2.shape)
 print(val_label_2)
-X_train, X_test, y_train, y_test = train_test_split(val_data_2, val_label_2, test_size=0.2, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(
+    val_data_2, val_label_2, test_size=0.2, random_state=42)
 
 
 model = api_model(0.1, 0.5, 0.4)
@@ -220,14 +221,11 @@ earlystop = EarlyStopping(monitor='val_loss', mode='min', patience=100,
 hist = model.fit(X_train, np.transpose(y_train).tolist(), batch_size=200,  # best:8
                  validation_split=0.2, epochs=180, verbose=2, shuffle=True,
                  callbacks=[earlystop])
-metrik_val = model.evaluate(X_test,np.transpose(y_test).tolist())
+metrik_val = model.evaluate(X_test, np.transpose(y_test).tolist())
 print(metrik_val)
 print("Third Eval CCC ave= ", np.mean(metrik_val[-3:]))
 data["Third Eval"] = np.mean(metrik_val[-3:])
 
-
-import json
-import os 
 
 script_name = os.path.basename(__file__)
 with open('JSONs/' + script_name + '_data.json', 'w') as f:
