@@ -255,13 +255,15 @@ The total loss with respect to this loss is defined to be the sum of loss of ind
     \label{eq:CCCLoss}
 \end{equation}
 
+However, the authors state that they could not find a way to implement this loss function to optimize MLP models. Hence, they used MSE Loss instead in the training process, and CCC Loss again in the evaluation. 
+
 \pagebreak
 
 \subsection{Modifications}
 
 The software provided in the \href{https://github.com/bagustris/deep_mlp_ser}{repository \faExternalLink*} is copied via \texttt{git clone} and some additional changes made on the repository. The modified version is shared \href{https://github.com/kutay-ugurlu/583-Project}{here \faExternalLink*}.
 
-\subsubsection{Data}
+\subsubsection{Data}\label{subsec:MELDdata}
 
 \paragraph{Datasets}
 
@@ -280,37 +282,40 @@ The whole data formation process can be seen in Figure \ref{fig:dataformation}.
 \caption{The data formation steps used to augment data from MELD dataset}\label{fig:dataformation}
 \end{figure}
 
+The data processing steps shown above visually in Figure \ref{fig:dataformation} is explained in detail in section \ref{subsec:datapreprocess}.
+
 \pagebreak
 
 \subsubsection{Models}
 
 The pre-trained models are evaluated using the new test data. Furthermore, to make better conclusions on the models' capability to fit the data, the data is split to train, test and validation sets and the model is evaluated after being retrained. The architectures of the model were not changed. The only change made was the number of training and patience epoch for early stopping. 
 
-\pagebreak
-
 \section{Results and Discussion} \label{sec:results}
 \begin{table}[h]
     \centering
     \begin{tabular}{lccccc}
         \toprule
-        {} &  \makecell{Original \\ Mean CCC} &  \makecell{Tested \\ Valence CCC} &  \makecell{Tested \\ Arousal CCC} &  \makecell{Tested \\ Dominance CCC} &  \makecell{Trained \\  Mean CCC} \\
+        {} &  \makecell{Original\\ Mean CCC} &  \makecell{Tested\\ Valence CCC} &  \makecell{Tested\\ Arousal CCC} &  \makecell{Tested\\ Dominance CCC} &  \makecell{Trained \\Mean CCC} \\
         \midrule
-        CNN IEMOCAP  &               0.33 &                0.02 &                0.04 &                  0.04 &              0.13 \\
-        CNN IMPROV   &               0.37 &               -0.00 &               -0.00 &                 -0.00 &              0.10 \\
-        CNN MIXED    &               0.20 &                0.03 &                0.05 &                  0.05 &              0.12 \\
-        LSTM IEMOCAP &               0.36 &                0.01 &               -0.00 &                 -0.00 &              0.12 \\
-        LSTM IMPROV  &               0.34 &               -0.00 &               -0.00 &                 -0.00 &              0.11 \\
-        LSTM MIXED   &               0.22 &               -0.01 &               -0.00 &                 -0.00 &              0.12 \\
-        MLP IEMOCAP  &               0.43 &                0.04 &                0.02 &                  0.02 &              0.01 \\
-        MLP IEMOCAP  &               0.43 &                0.04 &                0.02 &                  0.02 &              0.01 \\
-        MLP IMPROV   &               0.42 &                0.04 &               -0.06 &                 -0.06 &              0.01 \\
-        MLP IMPROV   &               0.42 &                0.04 &               -0.06 &                 -0.06 &              0.01 \\
-        MLP MIXED    &               0.29 &                0.10 &                0.05 &                  0.05 &              0.01 \\
+        CNN IEMOCAP  &              0.330 &               0.022 &               0.043 &                 0.043 &             0.130 \\
+        CNN IMPROV   &              0.372 &              -0.000 &              -0.000 &                -0.000 &             0.103 \\
+        CNN MIXED    &              0.204 &               0.032 &               0.046 &                 0.046 &             0.119 \\
+        LSTM IEMOCAP &              0.359 &               0.013 &              -0.000 &                -0.000 &             0.118 \\
+        LSTM IMPROV  &              0.338 &              -0.001 &              -0.003 &                -0.003 &             0.113 \\
+        LSTM MIXED   &              0.215 &              -0.008 &              -0.002 &                -0.002 &             0.118 \\
+        MLP IEMOCAP  &              0.434 &               0.042 &               0.020 &                 0.020 &             0.005 \\
+        MLP IEMOCAP  &              0.434 &               0.042 &               0.020 &                 0.020 &             0.005 \\
+        MLP IMPROV   &              0.419 &               0.035 &              -0.058 &                -0.058 &             0.005 \\
+        MLP IMPROV   &              0.419 &               0.035 &              -0.058 &                -0.058 &             0.005 \\
+        MLP MIXED    &              0.294 &               0.104 &               0.050 &                 0.050 &             0.005 \\
         \bottomrule
         \end{tabular}
+        
     \caption{CCC results of the conducted experiments}
     \label{tab:CCCloss}
 \end{table}
+
+The CCC values obtained from the experiments are summarized in Table \ref{tab:CCCloss}. The \textbf{Original Mean CCC} columns represent the reproduced mean of three dimensional CCC results in the original paper \cite{atmaja2020deep}. Following three columns represent the values of the three dimensional evaluation results with the new test data in \ref{subsec:MELDdata}. The last column represent the values obtained from the experiments where the new test data is used both in training and evaluation.
 
     
     
