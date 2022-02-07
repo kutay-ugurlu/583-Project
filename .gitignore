@@ -18,5 +18,24 @@ data/MELDRaw/test_data/output_repeated_splits_test/WAVs/*
 data/MELDRaw/test_data/output_repeated_splits_test/MP4s/*
 !data/MELDRaw/test_data/output_repeated_splits_test/MP4s/*.py
 
+# Training Data 
+
+!data/MELDRaw/train_data/*
+data/MELDRaw/train_data/*
+!data/MELDRaw/train_data/train_splits
+data/MELDRaw/train_data/train_splits/*
+!data/MELDRaw/train_data/train_splits/*.py
+
+
+!data/MELDRaw/train_data/train_splits/WAVs
+data/MELDRaw/train_data/train_splits/WAVs/*
+!data/MELDRaw/train_data/train_splits/WAVs/*.py
+
+
+!data/MELDRaw/train_data/train_splits/MP4s
+data/MELDRaw/train_data/train_splits/MP4s/*
+!data/MELDRaw/train_data/train_splits/MP4s/*.py
+
+
 data/EmoSynth
 
