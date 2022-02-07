@@ -2,7 +2,7 @@ import os
 from glob import glob 
 
 def str_checker(a):
-    return (a.startswith("cnn") and (a.endswith("loso.py") or a.endswith("loso_optim.py")))
+    return (True and (a.endswith("loso.py") or False))
 
 
 all_pys = glob("*py")

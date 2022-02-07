@@ -92,28 +92,40 @@ for i in range(0, 3):
 print(ccc)
 print(np.mean(ccc))
 
+## MODIFICATIONS
 
 data = {}
 
 data["First Eval"] = np.mean(ccc)
 
 
-val_data_2 = np.load(
+TEST_DATA = np.load(
     "../data/MELDRaw/MELD_test_data_no_neutral.npy")
-val_label_2 = np.load(
+TEST_LABEL = np.load(
     "../data/MELDRaw/MELD_labels_no_neutral.npy")
-val_label_2 += 0 *  \
-    np.random.randn(val_label_2.shape[0], val_label_2.shape[1])
+TRAIN_DATA = np.load(
+    "../data/MELDRaw/MELD_train_data_no_neutral.npy")
+TRAIN_LABEL = np.load(
+    "../data/MELDRaw/MELD_labels_no_neutral_train.npy")
+print(TRAIN_LABEL)
 
 scaled_feature = True
 
 if scaled_feature == True:
     scaler = StandardScaler()
-    scaler = scaler.fit(val_data_2)
-    scaled_feat = scaler.transform(val_data_2)
+    scaler = scaler.fit(TEST_DATA)
+    scaled_feat = scaler.transform(TEST_DATA)
     val_data_2 = scaled_feat
 else:
-    val_data_2 = val_data_2
+    val_data_2 = TEST_DATA
+
+if scaled_feature == True:
+    scaler = StandardScaler()
+    scaler = scaler.fit(TRAIN_DATA)
+    scaled_feat = scaler.transform(TRAIN_DATA)
+    val_data_2 = scaled_feat
+else:
+    val_data_2 = TRAIN_DATA
 
 scaled_vad = False
 
@@ -128,12 +140,12 @@ if scaled_vad:
 else:
     vad = vad
 
-y_predict = nn.predict(val_data_2)
+y_predict = nn.predict(TEST_DATA)
 
 
 ccc = []
 for i in range(0, 3):
-    ccc_, _, _ = calc_scores(y_predict[:, i], val_label_2[:, i])
+    ccc_, _, _ = calc_scores(y_predict[:, i], TEST_LABEL[:, i])
     ccc.append(ccc_)
     # print("# ", ccc)
 
@@ -143,15 +155,17 @@ data["Second Eval whole"] = ccc
 
 nn = MLPRegressor(
     hidden_layer_sizes=(256, 128, 64, 32, 16),  activation='logistic', solver='adam', alpha=0.001, batch_size='auto',
-    learning_rate='constant', learning_rate_init=0.001, power_t=0.5, max_iter=250, shuffle=True,
-    random_state=9, verbose=0, warm_start=True, momentum=0.9, nesterovs_momentum=True,
+    learning_rate='constant', learning_rate_init=0.001, power_t=0.5, max_iter=500, shuffle=True,
+    random_state=9, verbose=1, warm_start=True, momentum=0.9, nesterovs_momentum=True,
     early_stopping=True, validation_fraction=0.2, beta_1=0.9, beta_2=0.999, epsilon=1e-08,
-    n_iter_no_change=100)
+    n_iter_no_change=250)
 
 
-X_train, X_test, y_train, y_test = train_test_split(
-    val_data_2, val_label_2, test_size=0.2, random_state=42)
 
+X_train = TRAIN_DATA
+X_test = TEST_DATA
+y_train = TRAIN_LABEL
+y_test = TEST_LABEL
 
 nn = nn.fit(X_train, y_train)
 y_predict = nn.predict(X_test)
@@ -169,6 +183,11 @@ data["Third Eval"] = np.mean(ccc)
 script_name = os.path.basename(__file__)
 with open('JSONs/' + script_name + '_data.json', 'w') as f:
     json.dump(data, f)
+
+# Results:
+#  0.3347105262468933
+#  0.5823825252355231
+#  0.4583157685040692
 
 
 # Results speaker-dependent:

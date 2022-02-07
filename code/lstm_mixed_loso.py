@@ -173,6 +173,10 @@ TRAIN_DATA = np.load(
 TRAIN_LABEL = np.load(
     "../data/MELDRaw/MELD_labels_no_neutral_train.npy")
 
+
+TEST_DATA = TEST_DATA.reshape(TEST_DATA.shape[0], TEST_DATA.shape[1], 1)
+TRAIN_DATA = TRAIN_DATA.reshape(TRAIN_DATA.shape[0], TRAIN_DATA.shape[1], 1)
+
 scaled_feature = True
 
 if scaled_feature == True:
@@ -186,6 +190,19 @@ if scaled_feature == True:
     TEST_DATA = scaled_feat
 else:
     TEST_DATA = TEST_DATA
+
+if scaled_feature == True:
+    scaler = StandardScaler()
+    scaler = scaler.fit(TRAIN_DATA.reshape(
+        TRAIN_DATA.shape[0]*TRAIN_DATA.shape[1], TRAIN_DATA.shape[2]))
+    scaled_feat = scaler.transform(TRAIN_DATA.reshape(
+        TRAIN_DATA.shape[0]*TRAIN_DATA.shape[1], TRAIN_DATA.shape[2]))
+    scaled_feat = TRAIN_DATA.reshape(
+        TRAIN_DATA.shape[0], TRAIN_DATA.shape[1], TRAIN_DATA.shape[2])
+    TRAIN_DATA = scaled_feat
+else:
+    TRAIN_DATA = TRAIN_DATA
+
 
 scaled_vad = False
 
@@ -201,6 +218,8 @@ else:
     TEST_LABEL = TEST_LABEL
 
 TEST_DATA = np.transpose(TEST_DATA, axes=[0, 2, 1])
+TRAIN_DATA = np.transpose(TRAIN_DATA, axes=[0, 2, 1])
+
 
 val_list = np.transpose(TEST_LABEL).tolist()
 
@@ -218,7 +237,6 @@ X_test = TEST_DATA
 y_train = TRAIN_LABEL
 y_test = TEST_LABEL
 
-
 model = api_model(0.1, 0.5, 0.4)
 earlystop = EarlyStopping(monitor='val_loss', mode='min', patience=100,
                           restore_best_weights=True)
@@ -234,6 +252,7 @@ data["Third Eval"] = np.mean(metrik_val[-3:])
 script_name = os.path.basename(__file__)
 with open('JSONs/' + script_name + '_data.json', 'w') as f:
     json.dump(data, f)
+
 
 
 # save prediction, comment to avoid overwriting
