@@ -159,41 +159,50 @@ metrik = model.evaluate(feat[len(feat_train):],
 print(metrik)
 print("First Eval CCC ave= ", np.mean(metrik[-3:]))
 
+## MODIFICATIONS
+
 data = {}
 
 data["First Eval"] = np.mean(metrik[-3:])
 
 
-val_data_2 = np.load(
+TEST_DATA = np.load(
     "../data/MELDRaw/MELD_test_data_no_neutral.npy")
-val_label_2 = np.load(
+TEST_LABEL = np.load(
     "../data/MELDRaw/MELD_labels_no_neutral.npy")
-val_label_2 += 0 *  \
-    np.random.randn(val_label_2.shape[0], val_label_2.shape[1])
+TRAIN_DATA = np.load(
+    "../data/MELDRaw/MELD_train_data_no_neutral.npy")
+TRAIN_LABEL = np.load(
+    "../data/MELDRaw/MELD_labels_no_neutral_train.npy")
+
+
+
+
+
 
 scaled_feature = True
 
-# if scaled_feature == True:
-#     scaler = StandardScaler()
-#     scaler = scaler.fit(val_data_2.reshape(
-#         val_data_2.shape[0]*val_data_2.shape[1], val_data_2.shape[2]))
-#     scaled_feat = scaler.transform(val_data_2.reshape(
-#         val_data_2.shape[0]*val_data_2.shape[1], val_data_2.shape[2]))
-#     scaled_feat = scaled_feat.reshape(
-#         val_data_2.shape[0], val_data_2.shape[1], val_data_2.shape[2])
-#     val_data_2 = scaled_feat
-# else:
-#     val_data_2 = val_data_2
+scaled_feature = True
 
 if scaled_feature == True:
     scaler = StandardScaler()
-    scaler = scaler.fit(val_data_2)
-    scaled_feat = scaler.transform(val_data_2)
+    scaler = scaler.fit(TEST_DATA)
+    scaled_feat = scaler.transform(TEST_DATA)
 else:
-    val_data_2 = val_data_2
+    TEST_DATA = TEST_DATA
+
+if scaled_feature == True:
+    scaler = StandardScaler()
+    scaler = scaler.fit(TRAIN_DATA)
+    scaled_feat = scaler.transform(TRAIN_DATA)
+else:
+    TRAIN_DATA = TRAIN_DATA
 
 
-val_data_2 = val_data_2.reshape(val_data_2.shape[0], val_data_2.shape[1], 1)
+
+TEST_DATA = TEST_DATA.reshape(TEST_DATA.shape[0], TEST_DATA.shape[1], 1)
+TRAIN_DATA = TRAIN_DATA.reshape(TRAIN_DATA.shape[0], TRAIN_DATA.shape[1], 1)
+
 
 
 scaled_vad = False
@@ -202,29 +211,28 @@ scaled_vad = False
 if scaled_vad:
     scaler = MinMaxScaler(feature_range=(-1, 1))
     # .reshape(vad.shape[0]*vad.shape[1], vad.shape[2]))
-    scaler = scaler.fit(val_label_2)
+    scaler = scaler.fit(TEST_LABEL)
     # .reshape(vad.shape[0]*vad.shape[1], vad.shape[2]))
-    scaled_vad = scaler.transform(val_label_2)
-    val_label_2 = scaled_vad
+    scaled_vad = scaler.transform(TEST_LABEL)
+    TEST_LABEL = scaled_vad
 else:
-    val_label_2 = val_label_2
+    TEST_LABEL = TEST_LABEL
 
-val_label_2 = np.transpose(val_label_2)
-val_list = val_label_2.tolist()
+TEST_LABEL = np.transpose(TEST_LABEL)
+val_list = TEST_LABEL.tolist()
 
 # Test with first model
-metrik_val = model.evaluate(val_data_2, val_list)
+metrik_val = model.evaluate(TEST_DATA, val_list)
 print(metrik_val)
 print("Second Eval CCC ave= ", np.mean(metrik_val[-3:]))
 data["Second Eval"] = np.mean(metrik_val[-3:])
 data["Second Eval whole"] = metrik_val[-3:]
 
 
-# Train Test Split
-print(val_data_2.shape, val_label_2.shape)
-print(val_label_2)
-X_train, X_test, y_train, y_test = train_test_split(
-    val_data_2, np.transpose(val_label_2), test_size=0.2, random_state=42)
+X_train = TRAIN_DATA
+X_test = TEST_DATA
+y_train = TRAIN_LABEL
+y_test = TEST_LABEL
 
 
 model = api_model(0.1, 0.5, 0.4)
@@ -233,7 +241,7 @@ earlystop = EarlyStopping(monitor='val_loss', mode='min', patience=100,
 hist = model.fit(X_train, np.transpose(y_train).tolist(), batch_size=200,  # best:8
                  validation_split=0.2, epochs=180, verbose=2, shuffle=True,
                  callbacks=[earlystop])
-metrik_val = model.evaluate(X_test, np.transpose(y_test).tolist())
+metrik_val = model.evaluate(X_test, val_list)
 print(metrik_val)
 print("Third Eval CCC ave= ", np.mean(metrik_val[-3:]))
 data["Third Eval"] = np.mean(metrik_val[-3:])
