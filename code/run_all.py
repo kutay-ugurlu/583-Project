@@ -2,7 +2,7 @@ import os
 from glob import glob 
 
 def str_checker(a):
-    return (True and (a.endswith("loso.py") or False))
+    return (a.startswith("mlp") and (a.endswith("loso.py") or False))
 
 
 all_pys = glob("*py")

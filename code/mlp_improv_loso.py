@@ -115,17 +115,17 @@ if scaled_feature == True:
     scaler = StandardScaler()
     scaler = scaler.fit(TEST_DATA)
     scaled_feat = scaler.transform(TEST_DATA)
-    val_data_2 = scaled_feat
+    TEST_DATA = scaled_feat
 else:
-    val_data_2 = TEST_DATA
+    TEST_DATA = TEST_DATA
 
 if scaled_feature == True:
     scaler = StandardScaler()
     scaler = scaler.fit(TRAIN_DATA)
     scaled_feat = scaler.transform(TRAIN_DATA)
-    val_data_2 = scaled_feat
+    TRAIN_DATA = scaled_feat
 else:
-    val_data_2 = TRAIN_DATA
+    TRAIN_DATA = TRAIN_DATA
 
 scaled_vad = False
 

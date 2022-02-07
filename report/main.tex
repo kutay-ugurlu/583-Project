@@ -283,7 +283,7 @@ The software provided in the \href{https://github.com/bagustris/deep_mlp_ser}{re
 \paragraph{Datasets}
 
 The authors of the study made use of the most of the databases whose utterances are labelled by multiple annotators in the Valence-Arousal-Dominance dimension. 
-Although there are many available datasets on Speech Emotion Recognition, only a few of them are labelled in the same manner. However, these datasets were not available for open access. The remaining available datasets are either labelled categorically, \textit{i.e.} sad, joy, anger etc. or labelled only in 2 dimension: Valence and Arousal. Since the latter option requires one to re-train the model, does not provide one with the chance of evaluating the pretrained model with the new test data and results in an unfair evaluation of the results since the dimension of the problem is changed, categorical dataset, MELD \cite{atmaja2020deep}, was used for the evaluation. The dataset consists of utterances in mp4 format from the TV series ''Friends'' and the categorical emotions regarding these utterances. The number of labeled utterance is 2610. However, the number of utterances labelled as ''neutral'' in the emotions, which corresponds to the origin of the Valence-Arousal-Dominance space, was exceedingly higher than the others, and it was causing problems in both class-imbalance sense and in the learning part of the regression networks, hence those samples were dropped from the dataset.
+Although there are many available datasets on Speech Emotion Recognition, only a few of them are labelled in the same manner. However, these datasets were not available for open access. The remaining available datasets are either labelled categorically, \textit{i.e.} sad, joy, anger etc. or labelled only in 2 dimension: Valence and Arousal. Since the latter option requires one to re-train the model, does not provide one with the chance of evaluating the pretrained model with the new test data and results in an unfair evaluation of the results since the dimension of the problem is changed, categorical dataset, MELD \cite{atmaja2020deep}, was used for the evaluation. The dataset consists of utterances in mp4 format from the TV series ''Friends'' and the categorical emotions regarding these utterances. The number of labeled utterances is 2610 for test and 5279 for training sets. However, the number of utterances labelled as ''neutral'' in the emotions, which corresponds to the origin of the Valence-Arousal-Dominance space, was exceedingly higher than the others, and it was causing problems in both class-imbalance sense and in the learning part of the regression networks, hence those samples were dropped from the dataset.
 
 \paragraph{Data Preprocessing}
 
@@ -310,7 +310,7 @@ The pre-trained models are evaluated using the new test data. Furthermore, to ma
     \centering
     \begin{tabular}{cccccc}
         \toprule
-        {} & \makecell{Original \\ Mean CCC} &  \makecell{Tested \\ Valence CCC} &  \makecell{Tested \\ Arousal CCC} &  \makecell{Tested \\ Dominance CCC} &  \makecell{Trained\\ Mean CCC} \\
+        {} &  \makecell{Original \\ Mean CCC} &  \makecell{Tested \\Valence CCC} &  \makecell{Tested \\Arousal CCC} &  \makecell{Tested\\ Dominance CCC} &  \makecell{Trained \\ Mean CCC} \\
         \midrule
         CNN TS1  &              0.283 &               0.061 &               0.043 &                 0.043 &             0.151 \\
         CNN TS2   &              0.364 &              -0.000 &              -0.001 &                -0.001 &             0.161 \\
@@ -318,9 +318,9 @@ The pre-trained models are evaluated using the new test data. Furthermore, to ma
         LSTM TS1 &              0.360 &               0.019 &              -0.002 &                -0.002 &             0.108 \\
         LSTM TS2  &              0.338 &              -0.001 &              -0.003 &                -0.003 &             0.122 \\
         LSTM M   &              0.215 &              -0.008 &              -0.002 &                -0.002 &             0.108 \\
-        MLP TS1  &              0.453 &              -0.011 &              -0.023 &                -0.023 &            -0.000 \\
-        MLP TS2   &              0.411 &              -0.001 &              -0.004 &                -0.004 &            -0.000 \\
-        MLP M    &              0.294 &               0.020 &               0.001 &                 0.001 &            -0.000 \\
+        MLP TS1  &              0.453 &               0.059 &               0.016 &                 0.016 &             0.057 \\
+        MLP TS2   &              0.411 &               0.041 &              -0.056 &                -0.056 &             0.057 \\
+        MLP M    &              0.294 &               0.104 &               0.050 &                 0.050 &             0.057 \\
         \bottomrule
         \end{tabular}
         
@@ -341,28 +341,28 @@ The  \textbf{Trained Mean CCC} results slightly varies among the experiments. Th
 \\
 \begin{minipage}{0.3\textwidth}
     \centering
-    $CNN_{avg} = 0.117$            
+    $CNN_{avg} = 0.157$            
 \end{minipage}
 \begin{minipage}{0.3\textwidth}
     \centering
-    $LSTM_{avg} = 0.116$             
+    $LSTM_{avg} = 0.113$             
 \end{minipage}
 \begin{minipage}{0.3\textwidth}
     \centering
-   $MLP_{avg} = 0.005$ 
+   $MLP_{avg} = 0.057$ 
 \end{minipage}
 
 \pagebreak 
 
 \subsection{Number of samples in the training set}
-The difference between the training and evaluation within the same datasets, \textit{i.e.}, \textbf{Original Mean CCC vs Trained Mean CCC}, can be explained by the number of utterances utilized in the datasets. There are 9-fold difference in the size of the datasets between the cases, and within-dataset performances rely highly on the data that is provided to the network. The size difference directly affects to which extent the model can fit the conditional probability distribution.
+The difference between the training and evaluation within the same datasets, \textit{i.e.}, \textbf{Original Mean CCC vs Trained Mean CCC}, can be explained by the number of utterances utilized in the datasets. There is almost two times difference in the size of the datasets between the training sets, and within-dataset performances rely highly on the data that is provided to the network. The size difference directly affects to which extent the model can fit the conditional probability distribution.
 
 \subsection{Number of training data distributions}
-One noticeable result is that mixing corpora, \textit{i.e.} forcing models to learn 2 different data distributions, resulted in poorer performance in the original study. This is expected, since the same model is being fitted to the two distributions, hence the prediction performance gets poorer in the test data from the same distributions. However, when we inspect the Multilayer perceptrons models in the second case, we observe a significantly increased generalization capability by three times. This may be due to the fact that this model has been trained on multiple different samples from multiple distributions, performing better in a never-seen sample. The same situation is also applicable for CNNs for the valence dimension of the regression.  
+One noticeable result is that mixing corpora, \textit{i.e.} forcing models to learn 2 different data distributions, resulted in poorer performance in the original study. This is expected, since the same model is being fitted to the two distributions, hence the prediction performance gets poorer in the test data from the same distributions. However, when we inspect the Multilayer perceptrons models in the second case, we observe a significantly increased generalization capability by three times. This may be due to the fact that this model has been trained on multiple different samples from multiple distributions, performing better in a never-seen sample.   
 
 \subsection{Labelling and Human Bias}
 
-The labelling process of the data used in the study was conducted by multiple annotators. The annotators scored the utterances in Valence-Arousal-Dominanca dimension and as the ground truth mean of the scores are utilized. In the newly introduced test data, the labels are augmented from categorical labels and perturbed with Gaussian noise with standard deviation 0.01, to introduce the human bias to the artificial labels. In the first labelling process, due to nature of the speech emotion recognition task, the ground truth was not clear and indisputable by the annotators. That is to say, the utterances may have been scored significantly different among the annotators and datasets. This is because the task of perceiving the emotion in an utterance not an objective task such as a vision task where people classify the vehicles they see in images. This may be another contributing factor to the performance difference in cross-dataset scenarios. In addition, simply taking the mean of the labels scored by annotators may be causing some bias among datasets. In other words, the closer categorical labels, such as surprise and joy, may have been simply labelled the same by coincidence or there could be some disagreement on these measures. For this problem, even a statistical technique Cohen's Kappa($\kappa$) was introduced \cite{cohenskappa}, to measure the inter-rater reliability.
+The labelling process of the data used in the study was conducted by multiple annotators. The annotators scored the utterances in Valence-Arousal-Dominance dimension and as the ground truth mean of the scores are utilized. In the newly introduced test data, the labels are augmented from categorical labels and perturbed with Gaussian noise with standard deviation 0.01, to introduce the human bias to the artificial labels. In the first labelling process, due to nature of the speech emotion recognition task, the ground truth was not clear and indisputable by the annotators. That is to say, the utterances may have been scored significantly different among the annotators and datasets. This is because the task of perceiving the emotion in an utterance not an objective task such as a vision task where people classify the vehicles they see in images. This may be another contributing factor to the performance difference in cross-dataset scenarios. In addition, simply taking the mean of the labels scored by annotators may be causing some bias among datasets. In other words, the closer categorical labels, such as surprise and joy, may have been simply labelled the same by coincidence or there could be some disagreement on these measures. For this problem, even a statistical technique Cohen's Kappa($\kappa$) was introduced \cite{cohenskappa}, to measure the inter-rater reliability.
 
 \subsection{Architecture}
 Inspecting the \textbf{Trained Mean CCC} results, one can conclude that the modern computational units such as LSTM and convolutional layers outperformed the classical MLP. Although, the extracted features mentioned in Section \ref{subsec:datapreprocess} do not have a straightforward time-series relation like the one observed in raw audio data, CNNs and LSTMs have an advantage over capturing the mutual (or sequential), relationship that is not easily comprehensible by humans. On the other hand, Multilayer Perceptron models regards these features as if they are completely independent and there is not a spatial relationship between the consecutive ones. This may be the reason why they are outperformed by the more modern architectures. The converse situation that is observed in the original paper seems to be a specific result of hyperparameter optimization along with the used datasets.
