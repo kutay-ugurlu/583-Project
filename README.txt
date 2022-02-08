@@ -1,1 +1,1 @@
-Please read the instructions at https://github.com/kutay-ugurlu/583-Project 
+Please read the instructions at https://github.com/kutay-ugurlu/Analysis-of-Deep-MLP-SER 

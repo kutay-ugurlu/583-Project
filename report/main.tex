@@ -105,7 +105,7 @@
 \fancyfoot[C]{\thepage}
 
 \title{\LARGE \LARGE EE583 Pattern Recognition Project \\ 
-Inspection of \textit{Deep Multilayer Perceptrons for Dimensional Speech Emotion Recognition}}
+Analaysis of \textit{Deep Multilayer Perceptrons for Dimensional Speech Emotion Recognition}}
 
 \maketitle{\LARGE}
 \pagebreak
@@ -276,7 +276,7 @@ However, the authors state that they could not find a way to implement this loss
 
 \subsection{Modifications}
 
-The software provided in the \href{https://github.com/bagustris/deep_mlp_ser}{repository \faExternalLink*} \footnote{https://github.com/bagustris/deep\_mlp\_ser} is copied via \texttt{git clone} and some additional changes made on the repository. The modified version is shared \href{https://github.com/kutay-ugurlu/583-Project}{here \faExternalLink*} \footnote{ https://github.com/kutay-ugurlu/583-Project}.
+The software provided in the \href{https://github.com/bagustris/deep_mlp_ser}{repository \faExternalLink*} \footnote{https://github.com/bagustris/deep\_mlp\_ser} is copied via \texttt{git clone} and some additional changes made on the repository. The modified version is shared \href{https://github.com/kutay-ugurlu/Analysis-of-Deep-MLP-SER}{here \faExternalLink*} \footnote{ https://github.com/kutay-ugurlu/Analysis-of-Deep-MLP-SER}.
 
 \subsubsection{Data}\label{subsec:MELDdata}
 
@@ -284,6 +284,12 @@ The software provided in the \href{https://github.com/bagustris/deep_mlp_ser}{re
 
 The authors of the study made use of the most of the databases whose utterances are labelled by multiple annotators in the Valence-Arousal-Dominance dimension. 
 Although there are many available datasets on Speech Emotion Recognition, only a few of them are labelled in the same manner. However, these datasets were not available for open access. The remaining available datasets are either labelled categorically, \textit{i.e.} sad, joy, anger etc. or labelled only in 2 dimension: Valence and Arousal. Since the latter option requires one to re-train the model, does not provide one with the chance of evaluating the pretrained model with the new test data and results in an unfair evaluation of the results since the dimension of the problem is changed, categorical dataset, MELD \cite{atmaja2020deep}, was used for the evaluation. The dataset consists of utterances in mp4 format from the TV series ''Friends'' and the categorical emotions regarding these utterances. The number of labeled utterances is 2610 for test and 5279 for training sets. However, the number of utterances labelled as ''neutral'' in the emotions, which corresponds to the origin of the Valence-Arousal-Dominance space, was exceedingly higher than the others, and it was causing problems in both class-imbalance sense and in the learning part of the regression networks, hence those samples were dropped from the dataset.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{MELDStats.png}
+\caption{MELD Dataset statistics}\label{fig:meldstats}
+\end{figure}
 
 \paragraph{Data Preprocessing}
 
@@ -299,11 +305,11 @@ The whole data formation process can be seen in Figure \ref{fig:dataformation}.
 
 The data processing steps shown above visually in Figure \ref{fig:dataformation} is explained in detail in section \ref{subsec:datapreprocess}.
 
-\pagebreak
-
 \subsubsection{Models}
 
 The pre-trained models are evaluated using the new test data. Furthermore, to make better conclusions on the models' capability to fit the data, the data is split to train, test and validation sets and the model is evaluated after being retrained. The architectures of the model were not changed. The only change made was the number of training and patience epoch for early stopping. The comparison was only made for speaker independent case due to the requirement of splitting the newly introduced test data in a speaker-wise manner and train the models using mixed datasets in the speaker dependent case and lack of available continuous data from the same speaker.
+
+\pagebreak
 
 \section{Results and Discussion} \label{sec:results}
 \begin{table}[h]
@@ -330,7 +336,7 @@ The pre-trained models are evaluated using the new test data. Furthermore, to ma
     \label{tab:CCCloss}
 \end{table}
 
-\indent The CCC values obtained from the experiments are summarized in Table \ref{tab:CCCloss}. The \textbf{Original Mean CCC} columns represent the reproduced mean of three-dimensional CCC results in the original paper \cite{atmaja2020deep}. Following three columns represent the values of the three dimensional evaluation results with the new test data in \ref{subsec:MELDdata}. The last column represent the values obtained from the experiments where the new test data is used both in training and evaluation.
+\indent The CCC values obtained from the experiments are summarized in Table \ref{tab:CCCloss}. The \textbf{Original Mean CCC} columns represent the reproduced mean of three-dimensional CCC results in the original paper \cite{atmaja2020deep}. Following three columns represent the values of the three dimensional evaluation results with the new test data in \ref{subsec:MELDdata}. The last column represent the values obtained from the experiments where the new test data is used both in training and evaluation. Train and test datasets were used exactly same as in \cite{poria2018meld} with the sizes shown in Figure \ref{fig:meldstats}.
 \\
 \\
 One may notice the performance difference between the dataset by comparing the numbers in the 1st column with the following three ones. These results imply that the models trained with the datasets used in the study do not generalize to the other test data. The mean of the results of the \textbf{Trained Mean CCC} case is used to replace the different results with k-fold cross validation results. 
@@ -355,7 +361,7 @@ The  \textbf{Trained Mean CCC} results slightly varies among the experiments. Th
 \pagebreak 
 
 \subsection{Number of samples in the training set}
-The difference between the training and evaluation within the same datasets, \textit{i.e.}, \textbf{Original Mean CCC vs Trained Mean CCC}, can be explained by the number of utterances utilized in the datasets. There is almost two times difference in the size of the datasets between the training sets, and within-dataset performances rely highly on the data that is provided to the network. The size difference directly affects to which extent the model can fit the conditional probability distribution.
+The difference between the training and evaluation within the same datasets, \textit{i.e.}, \textbf{Original Mean CCC vs Trained Mean CCC}, can be explained by the number of utterances utilized in the datasets. There is almost two times difference in the size of the datasets between the training sets, and within-dataset performances rely highly on the data that is provided to the network. The size difference directly affects to which extent the model can fit the conditional probability distribution. In addition, the number of unique words in the utterances given in Figure \ref{fig:meldstats} may also contribute to this conclusion
 
 \subsection{Number of training data distributions}
 One noticeable result is that mixing corpora, \textit{i.e.} forcing models to learn 2 different data distributions, resulted in poorer performance in the original study. This is expected, since the same model is being fitted to the two distributions, hence the prediction performance gets poorer in the test data from the same distributions. However, when we inspect the Multilayer perceptrons models in the second case, we observe a significantly increased generalization capability by three times. This may be due to the fact that this model has been trained on multiple different samples from multiple distributions, performing better in a never-seen sample.   
