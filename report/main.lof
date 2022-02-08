@@ -1,0 +1,12 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\babel@toc {english}{}\relax 
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {1}{\ignorespaces Traditional Speech Emotion Recognition Scheme \cite {ser_deep_dl}\relax }}{3}{figure.caption.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {2}{\ignorespaces Categorical Emotions in VAD space \cite {bualan2020emotion}\relax }}{4}{figure.caption.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3}{\ignorespaces Model architectures utilized in \cite {atmaja2020deep}\relax }}{6}{figure.caption.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4}{\ignorespaces MELD Dataset statistics\relax }}{7}{figure.caption.5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5}{\ignorespaces The data formation steps used to augment data from MELD dataset\relax }}{8}{figure.caption.6}%

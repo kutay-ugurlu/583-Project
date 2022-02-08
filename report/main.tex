@@ -110,6 +110,8 @@ Analaysis of \textit{Deep Multilayer Perceptrons for Dimensional Speech Emotion 
 \maketitle{\LARGE}
 \pagebreak
 \tableofcontents
+\listoffigures
+\listoftables
 \pagebreak
 
 \section{Introduction}
@@ -219,11 +221,11 @@ Then, 47 features, High Statistical Functions of these 23 features are calculate
     S &= \frac{N_s}{N_t} & Threshold &= 0.3 \times X_{RMS}
 \end{align}
 where $N_s$ is the number of silent frames and $N_t$ is the number of total frames.
-The frames are labelled as silent by being compared to a threshold. 
+The frames are labelled as silent by being compared to a threshold whose factor 0.3 is determined empirically. 
 \begin{align}
-    Threshold &= 0.3 \times X_{RMS} & X_{RMS} &= \sqrt{\frac{1}{n}\sum_{i=1}^n{x[i]}^2}
+    X_{RMS} &= \sqrt{\frac{1}{n}\sum_{i=1}^n{x[i]}^2}
 \end{align}
-where the factor 0.3 is determined empirically.
+
 \paragraph{Scaling}
 Both the data and the labels that were originally labelled in the range $[-5,5]$ are scaled to the range [-1,1] in ReLU activated CNNs and LSTM networks. 
 
