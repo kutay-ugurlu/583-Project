@@ -1,4 +1,4 @@
-# 583-Project
+# Analysis of Deep MLP SER 
 ## The unmodified code represented in [Deep Multilayer Perceptrons for Dimensional Speech Emotion Recognition](https://github.com/bagustris/deep_mlp_ser)
 ### This is the project repository of EE583 project where the study cited above is evaluated with other corpora.
 
