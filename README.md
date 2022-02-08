@@ -13,7 +13,7 @@ conda create --name deepmlpser --file requirements.txt
 
 ## Running Scripts 
 ### MP4 to WAV
-* After MELD Raw data is replaced with the one provided in the link above, one can find MP4 and WAV files. One may also reproduce the WAV files by running [MP4_to_WAV.py](https://github.com/kutay-ugurlu/Analysis-of-Deep-MLP-SER/blob/master/data/MELDRaw/test_data/output_repeated_splits_test/mp4_to_wav.py) which requires ```FFMPEG```.
+* After MELD Raw data is replaced with the one provided in the link above, one can find MP4 and WAV files. One may also reproduce the WAV files by running [MP4_to_WAV.py](https://github.com/kutay-ugurlu/Analysis-of-Deep-MLP-SER/blob/master/data/MELDRaw/test_data/output_repeated_splits_test/mp4_to_wav.py) which requires [FFMPEG](https://www.ffmpeg.org/).
 ### Feature generation
 * After WAV files are created, run [feat_extract.py](https://github.com/kutay-ugurlu/Analysis-of-Deep-MLP-SER/blob/master/data/MELDRaw/test_data/output_repeated_splits_test/WAVs/feat_extract.py) to get the features in numpy files.
 ### Label generation
