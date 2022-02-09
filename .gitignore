@@ -49,4 +49,6 @@ report/*.toc
 report/*.blg
 report/*.lof
 report/*.bcf
+report/*.xml
+report/*.gz
 
