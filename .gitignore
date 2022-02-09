@@ -39,3 +39,14 @@ data/MELDRaw/train_data/train_splits/MP4s/*
 data/EmoSynth
 
 report/Presentation.pptx
+report/*.log
+report/*.aux
+report/*.bcf
+report/*.bbl
+report/*.lot
+report/*.out
+report/*.toc
+report/*.blg
+report/*.lof
+report/*.bcf
+
